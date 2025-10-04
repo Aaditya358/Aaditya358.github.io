@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
+      color: #fff;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4d6d;
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ff4d6d;
+      text-align: center;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #ff4d6d;
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .skills-list, .contact-info, .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .skill, .contact-item, .portfolio-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .skill:hover, .contact-item:hover, .portfolio-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .portfolio-item a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background: #ff4d6d;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+
+    .portfolio-item a:hover {
+      background: #e63b5d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Animation */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+
+    [data-animate].active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <img src="file:///C:/Users/akuma/OneDrive/Documents/Acer_LepTop/rebuilt.Photo/Photo_RAR/Thumbnail_YT/Profile_Photo.jpg" alt="Aditya">
+    <h1>Aditya</h1>
+    <p>3D Generalist | Video Editor | Short Filmmaker</p>
+  </header>
+
+  <section id="about" data-animate>
+    <h2>About Me</h2>
+    <p>I’m Aditya, a passionate 3D Generalist, Video Editor, and Short Filmmaker. Recently completed my 12th in 2025, I’ve been learning and improving my creative skills for the past 4 years. Now I’m stepping into the professional world with a strong foundation in visual storytelling and design.</p>
+  </section>
+
+  <section id="skills" data-animate>
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">Blender</div>
+      <div class="skill">After Effects</div>
+      <div class="skill">Premiere Pro</div>
+      <div class="skill">Photoshop</div>
+      <div class="skill">DaVinci Resolve</div>
+      <div class="skill">Filmora</div>
+      <div class="skill">Marvelous Designer</div>
+    </div>
+  </section>
+
+  <section id="experience" data-animate>
+    <h2>Experience</h2>
+    <p>From 2022 to 2025, I have been in learning mode, exploring various tools and techniques in 3D, video editing, and filmmaking. Now, I am ready to bring my creativity and skills into real-world projects.</p>
+  </section>
+
+  <section id="portfolio" data-animate>
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <!-- Image Project -->
+      <div class="portfolio-item">
+        <img src="images/project1.jpg" alt="Project 1">
+        <p>3D Environment Practice</p>
+      </div>
+      <!-- Video Project -->
+      <div class="portfolio-item">
+        <img src="images/project2.jpg" alt="Project 2">
+        <p>Short Film Edit</p>
+        <a href="https://www.youtube.com/" target="_blank">▶ Watch Video</a>
+      </div>
+      <!-- Image Project -->
+      <div class="portfolio-item">
+        <img src="images/project3.jpg" alt="Project 3">
+        <p>Motion Graphics Sample</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-animate>
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <div class="contact-item"><a href="mailto:prabhat358@hotmail.com">📧 prabhat358@hotmail.com</a></div>
+      <div class="contact-item"><a href="tel:+919569942903">📱 +91 9569942903</a></div>
+      <div class="contact-item"><a href="https://linkedin.com" target="_blank">🔗 LinkedIn (coming soon)</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Aditya | Designed with ❤️</p>
+  </footer>
+
+  <script>
+    const animateElements = document.querySelectorAll('[data-animate]');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    });
+
+    animateElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
