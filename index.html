@@ -173,6 +173,44 @@
       opacity: 1;
       transform: translateY(0);
     }
+/* --- Projects Section Style Start --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+.project-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+  text-align: left;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+.project-info {
+  padding: 20px;
+}
+.project-info h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ff4d6d;
+}
+.project-info p {
+  color: #ddd;
+  font-size: 0.9rem;
+}
+/* --- Projects Section Style End --- */
+
   </style>
 </head>
 <body>
@@ -237,6 +275,28 @@
       </div>
     </div>
   </section>
+<section id="projects" data-animate>
+  <h2>My Projects</h2>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <img src="project1.jpg" alt="Project 1 Thumbnail">
+      <div class="project-info">
+        <h3>Project Title 1</h3>
+        <p>यहाँ अपने प्रोजेक्ट के बारे में लिखें। आपने कौन से टूल्स (Blender, After Effects, etc.) का इस्तेमाल किया, यह भी बताएं।</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="project2.png" alt="Project 2 Thumbnail">
+      <div class="project-info">
+        <h3>Project Title 2</h3>
+        <p>यहाँ अपने दूसरे प्रोजेक्ट के बारे में लिखें। यह क्या है और इसे कैसे बनाया गया।</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
   <section id="contact" data-animate>
     <h2>Contact</h2>
