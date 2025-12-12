@@ -4,117 +4,252 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya | My Projects</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* --- Basic Settings --- */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-    body { background: linear-gradient(135deg, #0f0f1a, #1a1a2e); color: #fff; line-height: 1.6; overflow-x: hidden; }
-
-    /* Navigation */
-    nav { width: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.7); display: flex; justify-content: center; padding: 15px 0; backdrop-filter: blur(10px); z-index: 1000; }
-    nav ul { list-style: none; display: flex; gap: 30px; }
-    nav a { color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s; }
-    nav a:hover { color: #ff4d6d; }
-
-    /* Main Section */
-    section { padding: 100px 20px 40px; max-width: 1200px; margin: auto; } /* Width badhaya taki side-by-side fit ho sake */
-    section h2 { font-size: 2.5rem; margin-bottom: 40px; color: #ff4d6d; text-align: center; position: relative; }
-    section h2::after { content: ''; width: 60px; height: 4px; background: #ff4d6d; display: block; margin: 10px auto 0; border-radius: 2px; }
-
-    /* --- SIDE BY SIDE LAYOUT (New Code) --- */
-    .projects-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr; /* Do barabar columns */
-      gap: 30px; /* Beech ka gap */
+    /* ===========================
+       Variables & Theme Setup
+       =========================== */
+    :root {
+      --bg-0: #0f1720;
+      --bg-1: #111423;
+      --primary: #36f0ff;
+      --accent: #9b6cff;
+      --glass-1: rgba(255, 255, 255, 0.06);
+      --glass-2: rgba(255, 255, 255, 0.04);
+      --muted: #cfd8e3;
+      --nav-h: 64px;
+      --max-w: 1100px;
+      --radius: 14px;
     }
 
-    /* Mobile ke liye (Jab screen choti ho to vertical ho jaye) */
-    @media (max-width: 768px) {
-      .projects-wrapper {
-        grid-template-columns: 1fr; /* Mobile par wapis ek ke niche ek */
-      }
+    /* ===========================
+       Base / Reset
+       =========================== */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+    
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
+      color: #eef6fb;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* Project Container Style */
-    .project-container { 
-      background: rgba(255, 255, 255, 0.05); 
-      border-radius: 12px; 
+    /* ===========================
+       Navigation
+       =========================== */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(6, 10, 15, 0.6), rgba(6, 10, 15, 0.35));
+      backdrop-filter: blur(8px) saturate(1.1);
+      z-index: 1200;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0 14px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.22s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      background: rgba(54, 240, 255, 0.05);
+    }
+    
+    /* Highlight Back Button */
+    .nav-back {
+        color: var(--primary) !important;
+        border: 1px solid rgba(54, 240, 255, 0.2);
+    }
+    .nav-back:hover {
+        background: var(--primary) !important;
+        color: #000 !important;
+    }
+
+    /* ===========================
+       Main Section
+       =========================== */
+    main { max-width: 1200px; margin: 0 auto; padding: 100px 20px 80px; }
+
+    section h2 {
+      text-align: center; color: var(--accent); font-size: 2.2rem; margin-bottom: 40px;
+    }
+    section h2::after {
+      content: ''; display: block; width: 60px; height: 4px; margin: 10px auto 0; border-radius: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    /* ===========================
+       Apple Liquid Glass Effect (Card)
+       =========================== */
+    .apple-glass {
+      position: relative;
+      border-radius: var(--radius);
       padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: 0.3s;
+      background: linear-gradient(180deg, var(--glass-2), var(--glass-1));
+      backdrop-filter: blur(18px) saturate(1.6);
+      -webkit-backdrop-filter: blur(18px) saturate(1.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 10px 30px rgba(2, 6, 12, 0.6);
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* Button niche barabar rahe */
+      justify-content: space-between;
     }
-    .project-container:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-5px); }
 
-    /* Video Style */
-    video { width: 100%; height: auto; border-radius: 8px; display: block; outline: none; background: #000; margin-bottom: 15px; }
+    .apple-glass:hover {
+      transform: translateY(-6px);
+      border-color: rgba(54, 240, 255, 0.15);
+      box-shadow: 0 20px 48px rgba(2, 6, 12, 0.8);
+    }
 
-    /* Titles */
-    .project-title { font-size: 1.5rem; color: #fff; margin-bottom: 5px; }
-    .project-desc { color: #ccc; font-size: 0.9rem; margin-bottom: 15px; }
+    /* Glossy highlight */
+    .apple-glass::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+      background: radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.12) 18%, rgba(255, 255, 255, 0.06) 34%, transparent 60%);
+      opacity: 0.9;
+    }
 
-    /* Button Style */
+    /* ===========================
+       Project Grid Layout
+       =========================== */
+    .projects-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Auto Responsive */
+      gap: 30px;
+    }
+
+    /* Video Styling */
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      outline: none;
+      background: #000;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Text Styling */
+    .project-title { font-size: 1.4rem; color: #fff; margin-bottom: 6px; font-weight: 600; }
+    .project-desc { color: var(--muted); font-size: 0.95rem; margin-bottom: 20px; }
+
+    /* Button Styling */
     .view-btn {
-      display: block; /* Poore width me button */
+      display: block;
+      width: 100%;
       text-align: center;
-      background: #ff4d6d;
-      color: white;
+      background: linear-gradient(90deg, rgba(54, 240, 255, 0.1), rgba(155, 108, 255, 0.1));
+      color: var(--primary);
       text-decoration: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      transition: 0.3s;
-      margin-top: auto; /* Button ko bottom me fix kare */
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 1px solid rgba(54, 240, 255, 0.3);
+      transition: 0.3s ease;
+      margin-top: auto;
     }
-    .view-btn:hover { background: #e63b5d; }
 
-    footer { text-align: center; padding: 20px; background: #111; font-size: 0.9rem; color: #aaa; margin-top: 40px; }
-    ::selection { background: #ffffff; color: #ff0000; }
+    .view-btn:hover {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: #050a10;
+      box-shadow: 0 0 20px rgba(54, 240, 255, 0.4);
+      border-color: transparent;
+    }
+
+    /* ===========================
+       Footer & Animation
+       =========================== */
+    footer { text-align: center; padding: 26px 12px; color: rgba(255, 255, 255, 0.5); margin-top: 40px; }
+    
+    [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    [data-animate].active { opacity: 1; transform: translateY(0); }
+    
+    ::selection { background: linear-gradient(90deg, var(--primary), var(--accent)); color: #000; }
   </style>
 </head>
 <body>
 
   <nav>
     <ul>
-      <li><a href="index.html">← Back to Home</a></li>
+      <li><a href="index.html" class="nav-back">← Back to Home</a></li>
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <section>
-    <h2>My Work Portfolio</h2>
+  <main>
+    <section data-animate>
+      <h2>My Work Portfolio</h2>
 
-    <div class="projects-wrapper">
+      <div class="projects-wrapper">
 
-      <div class="project-container">
-        <video controls controlsList="nodownload" oncontextmenu="return false;">
-            <source src="vfx.mp4" type="video/mp4">
-        </video>
-        <div>
-          <h3 class="project-title">VFX & Compositing Project</h3>
-          <p class="project-desc">A breakdown of visual effects and compositing techniques.</p>
+        <div class="apple-glass">
+          <video controls controlsList="nodownload" oncontextmenu="return false;">
+              <source src="vfx.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+          <div>
+            <h3 class="project-title">VFX & Compositing Project</h3>
+            <p class="project-desc">A breakdown of visual effects and compositing techniques using After Effects and Blender.</p>
+          </div>
+          <a href="case1.html" class="view-btn">View Process (Read More) ↗</a>
         </div>
-        <a href="case1.html" class="view-btn">View Process (Read More) ↗</a>
-      </div>
 
-      <div class="project-container">
-        <video controls controlsList="nodownload" oncontextmenu="return false;">
-            <source src="1d.mp4" type="video/mp4">
-        </video>
-        <div>
-          <h3 class="project-title">CGI & Object Cleanup</h3>
-          <p class="project-desc">Advanced object removal and CGI integration workflow.</p>
+        <div class="apple-glass">
+          <video controls controlsList="nodownload" oncontextmenu="return false;">
+              <source src="1d.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+          <div>
+            <h3 class="project-title">CGI & Object Cleanup</h3>
+            <p class="project-desc">Advanced object removal and CGI integration workflow with seamless tracking.</p>
+          </div>
+          <a href="case2.html" class="view-btn">View Workflow Table ↗</a>
         </div>
-        <a href="case2.html" class="view-btn">View Workflow Table ↗</a>
-      </div>
 
-    </div>
+      </div>
     </section>
+  </main>
 
   <footer>
     <p>© 2025 Aditya | Designed with ❤️</p>
   </footer>
+
+  <script>
+    (function() {
+      const animateElements = document.querySelectorAll('[data-animate]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      animateElements.forEach(el => observer.observe(el));
+    })();
+  </script>
 
 </body>
 </html>
