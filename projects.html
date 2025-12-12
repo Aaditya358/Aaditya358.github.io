@@ -16,18 +16,34 @@
     nav a:hover { color: #ff4d6d; }
 
     /* Main Section */
-    section { padding: 100px 20px 40px; max-width: 900px; margin: auto; }
+    section { padding: 100px 20px 40px; max-width: 1200px; margin: auto; } /* Width badhaya taki side-by-side fit ho sake */
     section h2 { font-size: 2.5rem; margin-bottom: 40px; color: #ff4d6d; text-align: center; position: relative; }
     section h2::after { content: ''; width: 60px; height: 4px; background: #ff4d6d; display: block; margin: 10px auto 0; border-radius: 2px; }
+
+    /* --- SIDE BY SIDE LAYOUT (New Code) --- */
+    .projects-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* Do barabar columns */
+      gap: 30px; /* Beech ka gap */
+    }
+
+    /* Mobile ke liye (Jab screen choti ho to vertical ho jaye) */
+    @media (max-width: 768px) {
+      .projects-wrapper {
+        grid-template-columns: 1fr; /* Mobile par wapis ek ke niche ek */
+      }
+    }
 
     /* Project Container Style */
     .project-container { 
       background: rgba(255, 255, 255, 0.05); 
       border-radius: 12px; 
-      margin-bottom: 40px; 
       padding: 20px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Button niche barabar rahe */
     }
     .project-container:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-5px); }
 
@@ -40,7 +56,8 @@
 
     /* Button Style */
     .view-btn {
-      display: inline-block;
+      display: block; /* Poore width me button */
+      text-align: center;
       background: #ff4d6d;
       color: white;
       text-decoration: none;
@@ -48,6 +65,7 @@
       border-radius: 5px;
       font-size: 0.9rem;
       transition: 0.3s;
+      margin-top: auto; /* Button ko bottom me fix kare */
     }
     .view-btn:hover { background: #e63b5d; }
 
@@ -67,27 +85,32 @@
   <section>
     <h2>My Work Portfolio</h2>
 
-    <div class="project-container">
-      <video controls controlsList="nodownload" oncontextmenu="return false;">
-          <source src="vfx.mp4" type="video/mp4">
-      </video>
-      <h3 class="project-title">VFX & Compositing Project</h3>
-      <p class="project-desc">A breakdown of visual effects and compositing techniques.</p>
-      
-      <a href="case1.html" class="view-btn">View Process (Read More) ↗</a>
-    </div>
+    <div class="projects-wrapper">
 
-    <div class="project-container">
-      <video controls controlsList="nodownload" oncontextmenu="return false;">
-          <source src="1d.mp4" type="video/mp4">
-      </video>
-      <h3 class="project-title">CGI & Object Cleanup</h3>
-      <p class="project-desc">Advanced object removal and CGI integration workflow.</p>
-      
-      <a href="case2.html" class="view-btn">View Workflow Table ↗</a>
-    </div>
+      <div class="project-container">
+        <video controls controlsList="nodownload" oncontextmenu="return false;">
+            <source src="vfx.mp4" type="video/mp4">
+        </video>
+        <div>
+          <h3 class="project-title">VFX & Compositing Project</h3>
+          <p class="project-desc">A breakdown of visual effects and compositing techniques.</p>
+        </div>
+        <a href="case1.html" class="view-btn">View Process (Read More) ↗</a>
+      </div>
 
-  </section>
+      <div class="project-container">
+        <video controls controlsList="nodownload" oncontextmenu="return false;">
+            <source src="1d.mp4" type="video/mp4">
+        </video>
+        <div>
+          <h3 class="project-title">CGI & Object Cleanup</h3>
+          <p class="project-desc">Advanced object removal and CGI integration workflow.</p>
+        </div>
+        <a href="case2.html" class="view-btn">View Workflow Table ↗</a>
+      </div>
+
+    </div>
+    </section>
 
   <footer>
     <p>© 2025 Aditya | Designed with ❤️</p>
