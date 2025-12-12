@@ -1,0 +1,159 @@
+/* --- ग्लोबल स्टाइल्स --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #0d1117; /* डार्क बैकग्राउंड */
+    color: #e6edf3;           /* हल्का टेक्स्ट कलर */
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px; /* कंटेंट को बीच में रखने के लिए */
+    margin: 40px auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- हेडिंग्स (स्क्रीनशॉट जैसा स्टाइल) --- */
+h1, h2 {
+    color: #c084fc; /* पर्पल एक्सेंट कलर */
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #30363d;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+}
+
+h4 {
+    font-size: 1.15rem;
+    color: #e6edf3;
+    font-weight: 500;
+}
+
+/* --- वीडियो कार्ड लेआउट --- */
+.video-list {
+    display: grid;
+    grid-template-columns: 1fr; /* एक कॉलम लेआउट */
+    gap: 25px;
+}
+
+.video-card {
+    background-color: #161b22; /* कार्ड का बैकग्राउंड */
+    border: 1px solid #30363d; /* हल्का बॉर्डर */
+    border-radius: 8px;
+    padding: 20px 25px;
+    transition: all 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(192, 132, 252, 0.08); /* हल्का पर्पल ग्लो */
+}
+
+/* --- कार्ड के अंदर का कंटेंट --- */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.niche {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Niche के हिसाब से अलग-अलग रंग */
+.niche.geo-politics {
+    background-color: #1f6feb; /* नीला */
+}
+.niche.what-if {
+    background-color: #c084fc; /* पर्पल */
+}
+.niche.history {
+    background-color: #238636; /* हरा */
+}
+
+
+.card-topic {
+    margin-bottom: 20px;
+}
+
+.card-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- चेकबॉक्स स्टाइल --- */
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-progress label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #aeb8c3;
+}
+
+.card-progress input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #c084fc; /* चेक करने पर पर्पल रंग */
+}
+
+/* --- स्क्रिप्ट टेक्स्ट एरिया --- */
+textarea {
+    width: 100%;
+    min-height: 150px;
+    background-color: #0d1117; /* बैकग्राउंड से मिलता-जुलता */
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 12px;
+    color: #e6edf3; /* लिखने का टेक्स्ट कलर */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    resize: vertical; /* यूजर इसे बड़ा-छोटा कर सकता है */
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #c084fc;
+    box-shadow: 0 0 0 3px rgba(192, 132, 252, 0.2);
+}
+
+textarea::placeholder {
+    color: #6e7681;
+}
