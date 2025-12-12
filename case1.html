@@ -3,49 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study: VFX Project</title>
+  <title>Case Study: VFX Process</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body { background: #0f0f1a; color: #fff; line-height: 1.6; padding: 20px; }
 
     /* Container */
-    .container { max-width: 800px; margin: 0 auto; background: #1a1a2e; padding: 40px; border-radius: 12px; margin-top: 50px; }
+    .container { max-width: 800px; margin: 0 auto; background: #1a1a2e; padding: 40px; border-radius: 12px; margin-top: 50px; border: 1px solid #333; }
     
     /* Header */
     h1 { color: #ff4d6d; font-size: 2rem; margin-bottom: 10px; }
     .subtitle { color: #aaa; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 20px; }
 
-    /* Content */
-    img { width: 100%; border-radius: 8px; margin-bottom: 20px; border: 2px solid #333; }
-    p { margin-bottom: 20px; color: #ddd; font-size: 1.1rem; }
+    /* Text Content */
+    h2 { color: #fff; margin-top: 25px; margin-bottom: 10px; border-left: 4px solid #ff4d6d; padding-left: 10px; }
+    p { margin-bottom: 15px; color: #ddd; font-size: 1.05rem; text-align: justify; }
     
     /* Back Button */
-    .back-btn { display: inline-block; margin-top: 20px; color: #ff4d6d; text-decoration: none; font-weight: bold; border: 1px solid #ff4d6d; padding: 10px 20px; border-radius: 5px; transition: 0.3s; }
+    .back-btn { display: inline-block; margin-top: 30px; color: #ff4d6d; text-decoration: none; font-weight: bold; border: 1px solid #ff4d6d; padding: 10px 20px; border-radius: 5px; transition: 0.3s; }
     .back-btn:hover { background: #ff4d6d; color: white; }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h1>VFX & Compositing Breakdown</h1>
-    <p class="subtitle">Project Type: Visual Effects | Software: After Effects & Blender</p>
+    <h1>VFX & Compositing Process</h1>
+    <p class="subtitle">Detailed text breakdown of the Visual Effects pipeline.</p>
 
-    <img src="project1.png" alt="Process Breakdown">
-
-    <h2>The Process</h2>
+    <h2>The Concept</h2>
     <p>
-      The workflow began by filming the raw footage. The main challenge was to integrate CGI elements seamlessly into the live-action shot.
-    </p>
-    <p>
-      <strong>Step 1: Tracking</strong><br>
-      I imported the footage into Adobe After Effects to generate a 3D camera track. Once the tracking data was solved with a low error rate, I exported it directly to Blender.
-    </p>
-    <p>
-      <strong>Step 2: Compositing</strong><br>
-      After rendering the 3D assets, I brought them back into After Effects for final compositing, color correction, and adding motion blur to match the original camera movement.
+      The goal of this project was to seamlessly blend digital elements into real-world footage. The primary focus was on realistic lighting and shadow matching to ensure the VFX felt grounded in reality.
     </p>
 
-    <a href="projects.html" class="back-btn">← Back to All Projects</a>
+    <h2>1. Camera Tracking</h2>
+    <p>
+      The process started with analyzing the raw footage. I used 3D Camera Tracking to calculate the movement of the camera. This created a virtual camera that moved exactly like the real one, allowing me to place objects in 3D space.
+    </p>
+
+    <h2>2. Compositing Layers</h2>
+    <p>
+      Once the tracking was done, I worked on the layers. This involved separating the background from the foreground using Roto-brushing. This is a crucial step to place effects <i>behind</i> characters or objects.
+    </p>
+
+    <h2>3. Final Polish</h2>
+    <p>
+      In the final stage, I added Color Grading to match the tones. I also added slight Grain and Motion Blur to the digital elements so they matched the imperfections of the original camera lens.
+    </p>
+
+    <a href="projects.html" class="back-btn">← Back to Projects</a>
   </div>
 
 </body>
