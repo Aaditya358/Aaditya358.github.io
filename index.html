@@ -127,33 +127,29 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    /* --- Yaha Badlav Kiya Hai (Images aur Video dono ke liye) --- */
+    /* --- Video aur Image Style --- */
     .portfolio-item img, .portfolio-item video {
       width: 100%;
       border-radius: 12px;
       object-fit: cover;
       transition: transform 0.3s ease;
+      outline: none; /* Focus outline hatane ke liye */
     }
 
     .portfolio-item img:hover, .portfolio-item video:hover {
       transform: scale(1.05);
     }
-    /* --------------------------------------------------------- */
 
-    .portfolio-item a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 8px 14px;
-      background: #ff4d6d;
-      color: #fff;
-      border-radius: 6px;
+    /* --- Contact Links Styling (White) --- */
+    .contact-item a {
+      color: #ffffff;
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: background 0.3s;
+      font-weight: 500;
+      transition: 0.3s;
     }
-
-    .portfolio-item a:hover {
-      background: #e63b5d;
+    
+    .contact-item a:hover {
+      color: #ff4d6d;
     }
 
     footer {
@@ -175,7 +171,8 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* --- Projects Section Style Start --- */
+    
+    /* --- Projects Section Style --- */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -212,12 +209,11 @@
       font-size: 0.9rem;
     }
 
-    /* --- Custom Highlight Color Start --- */
+    /* --- Custom Highlight Color --- */
     ::selection { 
       background: #ffffff;
       color: #ff0000;
     }
-    /* --- Custom Highlight Color End --- */
 
   </style>
 </head>
@@ -270,19 +266,21 @@
     <div class="portfolio-grid">
       
       <div class="portfolio-item">
-        <video width="100%" controls>
+        <video width="100%" controls controlsList="nodownload" oncontextmenu="return false;">
             <source src="vfx.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <p>VFX</p>
-        <a href="https://youtube.com/shorts/y5Lhaun7nnE?si=XloV6Aqe8u5Od5jP" target="_blank">▶ Watch Video</a>
       </div>
       
       <div class="portfolio-item">
-        <img src="project3.png" alt="Project">
-        <p>CGI&VFX, and Object cleenup</p>
-        <a href="https://youtube.com/shorts/wUPpWvfKSV0" target="_blank">▶ Watch Video</a>
+        <video width="100%" controls controlsList="nodownload" oncontextmenu="return false;">
+            <source src="1d.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p>CGI & VFX, and Object Cleanup</p>
       </div>
+
     </div>
   </section>
 
