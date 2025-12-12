@@ -9,15 +9,36 @@
     body { background: #0f0f1a; color: #fff; line-height: 1.6; padding: 20px; }
 
     /* Container */
-    .container { max-width: 800px; margin: 0 auto; background: #1a1a2e; padding: 40px; border-radius: 12px; margin-top: 50px; border: 1px solid #333; }
+    .container { max-width: 900px; margin: 0 auto; background: #1a1a2e; padding: 40px; border-radius: 12px; margin-top: 50px; border: 1px solid #333; }
     
     /* Header */
     h1 { color: #ff4d6d; font-size: 2rem; margin-bottom: 5px; }
     .subtitle { color: #aaa; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 20px; }
 
-    /* Image (Optional, agar 2nd project ki photo hai to rahne de, nahi to hata de) */
-    img { width: 100%; border-radius: 8px; margin-bottom: 30px; border: 2px solid #333; }
-    
+    /* --- DUAL IMAGE SECTION (New Code) --- */
+    .image-row {
+      display: flex; /* Side by side karne ke liye */
+      gap: 20px;     /* Beech me gap */
+      margin-bottom: 30px;
+    }
+
+    .image-row img {
+      width: 50%;   /* Adha-Adha hissa */
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid #333;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .image-row img:hover { transform: scale(1.02); border-color: #ff4d6d; }
+
+    /* Mobile ke liye (Phone par upar-neeche dikhega) */
+    @media (max-width: 600px) {
+      .image-row { flex-direction: column; }
+      .image-row img { width: 100%; }
+    }
+
     /* --- TABLE STYLE --- */
     table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 30px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; overflow: hidden; }
     th, td { padding: 15px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
@@ -40,10 +61,14 @@
     <h1>CGI Integration & Cleanup</h1>
     <p class="subtitle">Workflow Breakdown: Using Multiple Softwares</p>
 
-    <img src="project2.png" alt="Workflow Breakdown">
+    <div class="image-row">
+      <img src="project1.png" alt="Footage / After Effects Process">
+      
+      <img src="project2.png" alt="Blender Process">
+    </div>
 
     <h2>Software & Task Table</h2>
-    <p>Here is exactly how I used After Effects and Blender together for this shot:</p>
+    <p>Here is exactly how I used After Effects and Blender together for this shot (Before & After process shown above):</p>
 
     <table>
       <thead>
@@ -57,12 +82,12 @@
         <tr>
           <td>Camera Tracking</td>
           <td class="ae">After Effects</td>
-          <td>Generated 3D camera data from footage.</td>
+          <td>Generated 3D camera data from raw footage.</td>
         </tr>
         <tr>
           <td>Modeling</td>
           <td class="bl">Blender</td>
-          <td>Created 3D assets to match the scene.</td>
+          <td>Created 3D assets to match the scene geometry.</td>
         </tr>
         <tr>
           <td>Lighting</td>
