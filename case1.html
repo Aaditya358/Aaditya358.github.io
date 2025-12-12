@@ -4,54 +4,247 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case Study: VFX Process</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-    body { background: #0f0f1a; color: #fff; line-height: 1.6; padding: 20px; }
+    /* ===========================
+       Variables & Theme Setup
+       =========================== */
+    :root {
+      --bg-0: #0f1720;
+      --bg-1: #111423;
+      --primary: #36f0ff;
+      --accent: #9b6cff;
+      --glass-1: rgba(255, 255, 255, 0.06);
+      --glass-2: rgba(255, 255, 255, 0.04);
+      --muted: #cfd8e3;
+      --nav-h: 64px;
+      --radius: 14px;
+    }
 
-    /* Container */
-    .container { max-width: 800px; margin: 0 auto; background: #1a1a2e; padding: 40px; border-radius: 12px; margin-top: 50px; border: 1px solid #333; }
+    /* ===========================
+       Base / Reset
+       =========================== */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
     
-    /* Header */
-    h1 { color: #ff4d6d; font-size: 2rem; margin-bottom: 10px; }
-    .subtitle { color: #aaa; margin-bottom: 30px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
+      color: #eef6fb;
+      line-height: 1.7; /* Increased for better reading */
+      overflow-x: hidden;
+    }
 
-    /* Text Content */
-    h2 { color: #fff; margin-top: 25px; margin-bottom: 10px; border-left: 4px solid #ff4d6d; padding-left: 10px; }
-    p { margin-bottom: 15px; color: #ddd; font-size: 1.05rem; text-align: justify; }
+    /* ===========================
+       Navigation
+       =========================== */
+    nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(6, 10, 15, 0.6), rgba(6, 10, 15, 0.35));
+      backdrop-filter: blur(8px) saturate(1.1);
+      z-index: 1200;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0 14px;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all 0.22s ease;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      background: rgba(54, 240, 255, 0.05);
+    }
+
+    .nav-back {
+        color: var(--primary) !important;
+        border: 1px solid rgba(54, 240, 255, 0.2);
+    }
+    .nav-back:hover {
+        background: var(--primary) !important;
+        color: #000 !important;
+    }
+
+    /* ===========================
+       Main Container
+       =========================== */
+    main {
+      max-width: 800px; /* Reading width */
+      margin: 0 auto;
+      padding: 100px 20px 60px;
+    }
+
+    /* ===========================
+       Apple Liquid Glass (Static for Reading)
+       =========================== */
+    .apple-glass-read {
+      position: relative;
+      border-radius: var(--radius);
+      padding: 40px;
+      background: linear-gradient(180deg, var(--glass-2), var(--glass-1));
+      backdrop-filter: blur(18px) saturate(1.6);
+      -webkit-backdrop-filter: blur(18px) saturate(1.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 10px 30px rgba(2, 6, 12, 0.6);
+      /* No wobble animation here for readability */
+    }
+
+    /* Glossy highlight */
+    .apple-glass-read::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+      background: radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.12) 18%, rgba(255, 255, 255, 0.06) 34%, transparent 60%);
+      opacity: 0.9;
+    }
+
+    /* ===========================
+       Typography & Content
+       =========================== */
+    h1 {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
     
-    /* Back Button */
-    .back-btn { display: inline-block; margin-top: 30px; color: #ff4d6d; text-decoration: none; font-weight: bold; border: 1px solid #ff4d6d; padding: 10px 20px; border-radius: 5px; transition: 0.3s; }
-    .back-btn:hover { background: #ff4d6d; color: white; }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-top: 35px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      /* Removing border-left, using color instead for cleaner look */
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: #e0e6ed;
+      font-size: 1rem;
+      text-align: left; /* Keep left for reading */
+    }
+
+    /* Bottom Button */
+    .btn-bottom {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+    .btn-bottom:hover {
+      background: var(--primary);
+      color: #000;
+      box-shadow: 0 0 20px rgba(54, 240, 255, 0.4);
+    }
+
+    /* ===========================
+       Footer & Animation
+       =========================== */
+    footer { text-align: center; padding: 26px 12px; color: rgba(255, 255, 255, 0.5); margin-top: 20px; }
+
+    [data-animate] { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    [data-animate].active { opacity: 1; transform: translateY(0); }
+
+    /* Mobile Tweaks */
+    @media (max-width: 600px) {
+      .apple-glass-read { padding: 25px; }
+      h1 { font-size: 1.8rem; }
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>VFX & Compositing Process</h1>
-    <p class="subtitle">Detailed text breakdown of the Visual Effects pipeline.</p>
+  <nav>
+    <ul>
+      <li><a href="projects.html" class="nav-back">← Back to Projects</a></li>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
 
-    <h2>The Concept</h2>
-    <p>
-      The goal of this project was to seamlessly blend digital elements into real-world footage. The primary focus was on realistic lighting and shadow matching to ensure the VFX felt grounded in reality.
-    </p>
+  <main>
+    <section data-animate>
+      <div class="apple-glass-read">
+        <h1>VFX & Compositing Process</h1>
+        <p class="subtitle">Detailed text breakdown of the Visual Effects pipeline.</p>
 
-    <h2>1. Camera Tracking</h2>
-    <p>
-      The process started with analyzing the raw footage. I used 3D Camera Tracking to calculate the movement of the camera. This created a virtual camera that moved exactly like the real one, allowing me to place objects in 3D space.
-    </p>
+        <h2>The Concept</h2>
+        <p>
+          The goal of this project was to seamlessly blend digital elements into real-world footage. 
+          The primary focus was on realistic lighting and shadow matching to ensure the VFX felt grounded in reality 
+          rather than just pasted on top.
+        </p>
 
-    <h2>2. Compositing Layers</h2>
-    <p>
-      Once the tracking was done, I worked on the layers. This involved separating the background from the foreground using Roto-brushing. This is a crucial step to place effects <i>behind</i> characters or objects.
-    </p>
+        <h2>1. Camera Tracking</h2>
+        <p>
+          The process started with analyzing the raw footage. I used 3D Camera Tracking to calculate the movement 
+          of the camera in 3D space. This created a virtual camera that moved exactly like the real one, 
+          allowing me to place objects that stick perfectly to the ground.
+        </p>
 
-    <h2>3. Final Polish</h2>
-    <p>
-      In the final stage, I added Color Grading to match the tones. I also added slight Grain and Motion Blur to the digital elements so they matched the imperfections of the original camera lens.
-    </p>
+        <h2>2. Compositing Layers</h2>
+        <p>
+          Once the tracking was done, I worked on the layers. This involved separating the background from the 
+          foreground using Roto-brushing. This is a crucial step to place effects <i>behind</i> characters or objects, 
+          creating genuine depth in the scene.
+        </p>
 
-    <a href="projects.html" class="back-btn">← Back to Projects</a>
-  </div>
+        <h2>3. Final Polish</h2>
+        <p>
+          In the final stage, I added Color Grading to match the tones. I also added slight Grain and Motion Blur 
+          to the digital elements so they matched the imperfections of the original camera lens.
+        </p>
+
+        <a href="projects.html" class="btn-bottom">← Back to Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Aditya | Designed with ❤️</p>
+  </footer>
+
+  <script>
+    (function() {
+      const animateElements = document.querySelectorAll('[data-animate]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      animateElements.forEach(el => observer.observe(el));
+    })();
+  </script>
 
 </body>
 </html>
