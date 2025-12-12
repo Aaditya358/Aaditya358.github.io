@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya | My Projects</title>
+  <style>
+    /* --- CSS Same as Home Page --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+    body { background: linear-gradient(135deg, #0f0f1a, #1a1a2e); color: #fff; line-height: 1.6; overflow-x: hidden; }
+
+    nav { width: 100%; position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.7); display: flex; justify-content: center; padding: 15px 0; backdrop-filter: blur(10px); z-index: 1000; }
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav a { color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    nav a:hover { color: #ff4d6d; }
+
+    section { padding: 100px 20px 40px; max-width: 1100px; margin: auto; }
+    section h2 { font-size: 2.5rem; margin-bottom: 40px; color: #ff4d6d; text-align: center; position: relative; }
+    section h2::after { content: ''; width: 60px; height: 4px; background: #ff4d6d; display: block; margin: 10px auto 0; border-radius: 2px; }
+
+    /* Portfolio Grid Style */
+    .portfolio-grid, .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px; }
+    
+    .portfolio-item, .project-card { background: rgba(255, 255, 255, 0.05); border-radius: 12px; overflow: hidden; transition: 0.3s; text-align: center; padding-bottom: 20px; }
+    .portfolio-item:hover, .project-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.1); }
+    
+    /* Image and Video Styles */
+    .portfolio-item video, .project-card img { width: 100%; height: 250px; object-fit: cover; display: block; outline: none; background: #000; }
+    
+    .portfolio-item p, .project-info p { padding: 15px; color: #ddd; font-size: 1rem; }
+    .project-info h3 { padding: 15px 15px 0; color: #ff4d6d; margin: 0; text-align: left; }
+    .project-info p { text-align: left; padding-top: 5px; }
+
+    footer { text-align: center; padding: 20px; background: #111; font-size: 0.9rem; color: #aaa; margin-top: 40px; }
+    ::selection { background: #ffffff; color: #ff0000; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">← Back to Home</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h2>Video Portfolio</h2>
+    <div class="portfolio-grid">
+      
+      <div class="portfolio-item">
+        <video controls controlsList="nodownload" oncontextmenu="return false;">
+            <source src="vfx.mp4" type="video/mp4">
+        </video>
+        <p>VFX & Compositing</p>
+      </div>
+      
+      <div class="portfolio-item">
+        <video controls controlsList="nodownload" oncontextmenu="return false;">
+            <source src="1d.mp4" type="video/mp4">
+        </video>
+        <p>CGI & Object Cleanup</p>
+      </div>
+
+      </div>
+  </section>
+
+  <section>
+    <h2>Case Studies & Renders</h2>
+    <div class="project-grid">
+
+      <div class="project-card">
+        <img src="project1.png" alt="After Effect">
+        <div class="project-info">
+          <h3>Compositing and Cleanup</h3>
+          <p>Filming raw footage and importing into Adobe After Effects to generate a 3D camera track.</p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="project2.png" alt="Blender">
+        <div class="project-info">
+          <h3>CGI & VFX</h3>
+          <p>Modeled 3D objects in Blender, aligned them within the scene, and optimized render settings.</p>
+        </div>
+      </div>
+
+      </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Aditya | Designed with ❤️</p>
+  </footer>
+
+</body>
+</html>
