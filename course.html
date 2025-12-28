@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Bazaar - Apple Glass Style</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%); /* Light Liquid Background */
+            background-attachment: fixed;
+            color: #1d1d1f;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Courses Section */
+        #courses { width: 100%; max-width: 1000px; margin-bottom: 50px; }
+        .courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .course {
+            padding: 25px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .course h3 { margin-top: 0; font-size: 1.4rem; }
+        .price { font-size: 1.5rem; font-weight: bold; margin: 15px 0; }
+        .old { text-decoration: line-through; color: #86868b; font-size: 1rem; margin-left: 10px; }
+
+        /* Apple Style Button */
+        .course a {
+            text-decoration: none;
+            background: #0071e3; /* Apple Blue */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .course a:hover { background: #0077ed; }
+
+        /* Steps Section */
+        .steps {
+            width: 100%; max-width: 600px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+        .steps ol { list-style: none; padding: 0; }
+        .steps li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-size: 1.1rem;
+        }
+
+        /* Offer Banner */
+        .offer {
+            background: rgba(255, 59, 48, 0.1); /* Subtle Red */
+            color: #d70015;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            border: 1px solid rgba(215, 0, 21, 0.2);
+            margin-bottom: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        /* FAQ Section */
+        .faq { width: 100%; max-width: 600px; padding: 25px; margin-bottom: 50px; }
+        .faq p { line-height: 1.6; margin-bottom: 15px; }
+
+        /* Sticky Telegram Button */
+        .telegram-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0, 136, 204, 0.8);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        footer { text-align: center; color: #86868b; font-size: 0.9rem; padding-bottom: 50px; }
+    </style>
+</head>
+<body>
+
+<section id="courses">
+    <h2>Popular Courses</h2>
+    <div class="courses">
+      <div class="course glass-card">
+        <h3>Video Editing Mastery</h3>
+        <p>Beginner to Advanced</p>
+        <div class="price">₹499 <span class="old">₹1999</span></div>
+        <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
+      </div>
+    
+      <div class="course glass-card">
+        <h3>YouTube + AI Course</h3>
+        <p>Grow Channel with AI</p>
+        <div class="price">₹199 <span class="old">₹999</span></div>
+        <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
+      </div>
+    
+      <div class="course glass-card">
+        <h3>Trading & Stock Market</h3>
+        <p>Basics to Pro</p>
+        <div class="price">₹399 <span class="old">₹1999</span></div>
+        <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
+      </div>
+    </div>
+</section>
+
+<div class="offer">
+    🔥 LIMITED TIME OFFER – BUY 1 GET 2 FREE 🔥
+</div>
+
+<section class="steps glass-card">
+    <h2>How It Works?</h2>
+    <ol>
+      <li>1️⃣ Choose Your Course</li>
+      <li>2️⃣ Join Telegram</li>
+      <li>3️⃣ Pay via UPI</li>
+      <li>4️⃣ Get Instant Access 🚀</li>
+    </ol>
+</section>
+
+<section class="faq glass-card">
+    <h2>FAQs</h2>
+    <p><b>Q:</b> Is this genuine? <br> <b>A:</b> Yes, 100% genuine courses.</p>
+    <p><b>Q:</b> Delivery time? <br> <b>A:</b> Instant after payment.</p>
+    <p><b>Q:</b> Lifetime access? <br> <b>A:</b> Yes.</p>
+</section>
+
+<footer>
+    <p>© 2025 Course Bazaar</p>
+    <p>Privacy Policy | Terms & Conditions</p>
+</footer>
+
+<a class="telegram-btn" href="https://t.me/YOUR_TELEGRAM_LINK">💬 Join Telegram</a>
+
+</body>
+</html>
