@@ -1,155 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Bazaar - Premium Courses</title>
+    <title>Course Bazaar | Premium Learning</title>
     <style>
-        /* CSS START - Screenshot Style Implementation */
+        /* CSS VARIABLES - Theme Colors */
         :root {
-            --bg-color: #0b0e14; /* Deep dark background */
-            --card-bg: #161b22;  /* Lighter dark for cards */
-            --accent-purple: #a855f7;
-            --accent-cyan: #22d3ee;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
+            --bg-dark: #0b0e14;
+            --card-bg: #161b22;
+            --purple: #a855f7;
+            --cyan: #22d3ee;
+            --text-white: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden; /* Phone par side scroll rokne ke liye */
         }
 
-        /* Heading Style with Gradient Underline (Screenshot match) */
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* HEADINGS - Screenshot Style */
         h2 {
-            color: var(--accent-purple);
-            font-size: 2.2rem;
-            margin-top: 50px;
-            margin-bottom: 10px;
+            color: var(--purple);
+            font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive Font */
             text-align: center;
-            font-weight: 800;
+            margin-top: 40px;
+            font-weight: 700;
         }
 
         h2::after {
             content: "";
             display: block;
-            width: 80px;
+            width: 70px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            margin: 15px auto;
+            background: linear-gradient(90deg, var(--cyan), var(--purple));
+            margin: 10px auto;
             border-radius: 10px;
         }
 
-        /* Courses Section */
-        .courses {
+        /* COURSE GRID - Laptop vs Mobile Layout */
+        .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            width: 90%;
-            max-width: 1100px;
-            padding: 20px 0;
+            /* Laptop par 3 cards, Mobile par 1 card - Automatic adjustment */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        .course {
+        .course-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             padding: 30px;
             text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
-        .course:hover {
+        .course-card:hover {
             transform: translateY(-10px);
-            border-color: var(--accent-purple);
-            box-shadow: 0 15px 40px rgba(168, 85, 247, 0.15);
+            border-color: var(--purple);
         }
 
-        .course h3 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
+        .course-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
         }
 
-        .course p {
-            color: var(--text-muted);
-            margin-bottom: 20px;
+        .course-card p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
         }
 
-        .price {
-            font-size: 1.8rem;
+        .price-box {
+            margin: 20px 0;
+            font-size: 1.6rem;
             font-weight: bold;
-            color: var(--accent-cyan);
-            margin-bottom: 20px;
+            color: var(--cyan);
         }
 
-        .price .old {
-            font-size: 1.1rem;
+        .price-box .old-price {
+            font-size: 1rem;
             text-decoration: line-through;
             color: #64748b;
-            margin-left: 10px;
+            margin-left: 8px;
         }
 
-        /* Button Style (Contact button style from screenshot) */
-        .course a, .telegram-btn {
+        /* BUTTONS - Contact style from image */
+        .btn {
             display: inline-block;
+            width: 100%;
             background: linear-gradient(145deg, #1e293b, #0f172a);
             color: white;
             text-decoration: none;
-            padding: 14px 30px;
-            border-radius: 15px;
+            padding: 12px;
+            border-radius: 12px;
             font-weight: 600;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
-            width: 80%;
         }
 
-        .course a:hover {
-            background: var(--accent-purple);
-            border-color: var(--accent-purple);
+        .btn:hover {
+            background: var(--purple);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
         }
 
-        /* Steps Section */
-        .steps {
-            width: 90%;
+        /* HOW IT WORKS SECTION */
+        .steps-container {
             max-width: 600px;
-            margin: 40px 0;
+            margin: 50px auto;
         }
 
-        .steps ol {
-            list-style: none;
-            padding: 0;
-        }
-
-        .steps li {
+        .step-item {
             background: rgba(255, 255, 255, 0.03);
-            margin: 15px 0;
-            padding: 20px;
+            margin-bottom: 15px;
+            padding: 15px 20px;
             border-radius: 15px;
-            border-left: 4px solid var(--accent-cyan);
-            font-size: 1.1rem;
-            text-align: left;
+            border-left: 4px solid var(--cyan);
+            display: flex;
+            align-items: center;
         }
 
-        /* Offer Banner */
-        .offer {
-            background: linear-gradient(90deg, #7e22ce, var(--accent-purple));
+        /* OFFER BANNER */
+        .offer-banner {
+            background: linear-gradient(90deg, #7e22ce, var(--purple));
             color: white;
-            width: 90%;
-            max-width: 800px;
-            padding: 25px;
-            font-weight: bold;
-            border-radius: 20px;
-            margin: 40px 0;
+            padding: 20px;
             text-align: center;
-            font-size: 1.2rem;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+            font-weight: bold;
+            border-radius: 15px;
+            margin: 40px 0;
+            font-size: clamp(1rem, 4vw, 1.3rem);
             animation: pulse 2s infinite;
         }
 
@@ -159,115 +157,123 @@
             100% { transform: scale(1); }
         }
 
-        /* FAQ Section */
-        .faq {
-            width: 90%;
-            max-width: 700px;
+        /* FAQ SECTION */
+        .faq-box {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 24px;
+            border-radius: 20px;
+            padding: 25px;
             margin-bottom: 50px;
-            text-align: left;
         }
 
-        .faq p {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 0;
-            margin: 0;
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 15px;
         }
 
-        .faq b {
-            color: var(--accent-cyan);
+        .faq-item b {
+            color: var(--cyan);
             display: block;
             margin-bottom: 5px;
         }
 
-        /* Footer */
+        /* FOOTER */
         footer {
-            width: 100%;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-muted);
             text-align: center;
+            padding: 40px 20px;
+            color: var(--text-dim);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* FLOATING TELEGRAM BUTTON (For Mobile Convenience) */
+        .telegram-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--cyan);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
             font-size: 0.9rem;
         }
 
-        /* Sticky Telegram Button */
-        .telegram-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: auto !important;
-            background: var(--accent-cyan) !important;
-            color: #000 !important;
-            border-radius: 50px !important;
-            box-shadow: 0 10px 20px rgba(34, 211, 238, 0.3);
-            z-index: 1000;
-            padding: 15px 30px !important;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h2 { font-size: 1.8rem; }
-            .course { margin: 10px; }
+        /* Small Screen Adjustments */
+        @media (max-width: 480px) {
+            .container { padding: 10px; }
+            .course-card { padding: 20px; }
+            .telegram-float { width: 90%; right: 5%; text-align: center; }
+            body { padding-bottom: 80px; } /* Space for floating button */
         }
     </style>
 </head>
 <body>
 
-<section id="courses">
-    <h2>Popular Courses</h2>
-    <div class="courses">
-        <div class="course">
-            <h3>Video Editing Mastery</h3>
-            <p>Beginner to Advanced</p>
-            <div class="price">₹499 <span class="old">₹1999</span></div>
-            <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
-        </div>
+<div class="container">
+    <section id="courses">
+        <h2>Popular Courses</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <h3>Video Editing Mastery</h3>
+                <p>Beginner to Advanced Guide</p>
+                <div class="price-box">₹499 <span class="old-price">₹1999</span></div>
+                <a href="https://t.me/YOUR_TELEGRAM_LINK" class="btn">Get Course</a>
+            </div>
 
-        <div class="course">
-            <h3>YouTube + AI Course</h3>
-            <p>Grow Channel with AI</p>
-            <div class="price">₹199 <span class="old">₹999</span></div>
-            <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
-        </div>
+            <div class="course-card">
+                <h3>YouTube + AI Course</h3>
+                <p>Grow Your Channel Fast</p>
+                <div class="price-box">₹199 <span class="old-price">₹999</span></div>
+                <a href="https://t.me/YOUR_TELEGRAM_LINK" class="btn">Get Course</a>
+            </div>
 
-        <div class="course">
-            <h3>Trading & Stock Market</h3>
-            <p>Basics to Pro</p>
-            <div class="price">₹399 <span class="old">₹1999</span></div>
-            <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
+            <div class="course-card">
+                <h3>Trading & Stock Market</h3>
+                <p>Learn Logic & Strategies</p>
+                <div class="price-box">₹399 <span class="old-price">₹1999</span></div>
+                <a href="https://t.me/YOUR_TELEGRAM_LINK" class="btn">Get Course</a>
+            </div>
         </div>
+    </section>
+
+    <section class="steps-container">
+        <h2>How It Works?</h2>
+        <div class="step-item">1️⃣ Choose Your Course</div>
+        <div class="step-item">2️⃣ Join Telegram Channel</div>
+        <div class="step-item">3️⃣ Complete Payment via UPI</div>
+        <div class="step-item">4️⃣ Get Instant Course Access 🚀</div>
+    </section>
+
+    <div class="offer-banner">
+        🔥 LIMITED TIME OFFER – BUY 1 GET 2 FREE 🔥
     </div>
-</section>
 
-<section class="steps">
-    <h2>How It Works?</h2>
-    <ol>
-        <li>1️⃣ Choose Your Course</li>
-        <li>2️⃣ Join Telegram</li>
-        <li>3️⃣ Pay via UPI</li>
-        <li>4️⃣ Get Instant Access 🚀</li>
-    </ol>
-</section>
-
-<div class="offer">
-    🔥 LIMITED TIME OFFER – BUY 1 GET 2 FREE 🔥
+    <section class="faq-box">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <b>Q: Is this genuine?</b>
+            <span>A: Yes, 100% genuine courses with life-time validity.</span>
+        </div>
+        <div class="faq-item">
+            <b>Q: When will I get the course?</b>
+            <span>A: You will get instant access on Telegram after payment.</span>
+        </div>
+        <div class="faq-item" style="border:none;">
+            <b>Q: Can I watch on Mobile?</b>
+            <span>A: Yes, you can watch these courses on any device.</span>
+        </div>
+    </section>
 </div>
 
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <p><b>Q: Is this genuine?</b> A: Yes, 100% genuine courses with verified content.</p>
-    <p><b>Q: Delivery time?</b> A: You will get instant access after payment verification.</p>
-    <p><b>Q: Lifetime access?</b> A: Yes, all courses come with lifetime validity.</p>
-</section>
-
 <footer>
-    <p>© 2025 Course Bazaar | Made with ❤️</p>
-    <p>Privacy Policy | Terms & Conditions</p>
+    <p>© 2025 Course Bazaar | Premium Digital Content</p>
+    <p style="margin-top:10px; font-size: 0.8rem;">Privacy Policy | Terms of Service</p>
 </footer>
 
-<a class="telegram-btn" href="https://t.me/YOUR_TELEGRAM_LINK">💬 Join Telegram For Help</a>
+<a href="https://t.me/YOUR_TELEGRAM_LINK" class="telegram-float">💬 Chat on Telegram</a>
 
 </body>
 </html>
