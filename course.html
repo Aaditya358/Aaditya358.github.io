@@ -3,72 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Project Dashboard | Apple Liquid Glass</title>
+    <title>Course & Project Dashboard | Premium Glass</title>
     <style>
-        /* --- APPLE LIQUID GLASS VARIABLES --- */
+        /* --- APPLE LIQUID GLASS THEME (INTEGRATED) --- */
         :root {
-            --glass: rgba(255, 255, 255, 0.07);
-            --glass-border: rgba(255, 255, 255, 0.12);
-            --apple-purple: #c084fc;
+            --bg-dark: #060709;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent-purple: #c084fc; /* Aapka reference color */
             --apple-blue: #0071e3;
-            --bg-dark: #060608;
-            --text-main: #e6edf3;
-            --text-dim: #8b949e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
         }
 
-        /* --- GLOBAL RESET --- */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         }
 
         body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg-dark);
-            /* Liquid Mesh Gradient Background */
+            /* Mesh Gradient for "Liquid" look */
             background-image: 
-                radial-gradient(at 0% 0%, rgba(192, 132, 252, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(0, 113, 227, 0.15) 0px, transparent 50%);
-            color: var(--text-main);
+                radial-gradient(at 0% 0%, rgba(192, 132, 252, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 113, 227, 0.1) 0px, transparent 50%);
+            color: var(--text-primary);
             line-height: 1.6;
-            min-height: 100vh;
             padding: 20px;
         }
 
         .container {
-            width: 95%;
             max-width: 1000px;
             margin: 40px auto;
+            padding: 20px;
         }
 
-        header {
+        h1, h2 {
             text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(to right, #fff, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -0.02em;
         }
 
         h2 {
-            font-size: 1.8rem;
-            color: var(--apple-purple);
-            margin: 40px 0 25px;
-            text-align: center;
-            font-weight: 600;
+            color: var(--accent-purple);
+            font-size: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 15px;
         }
 
-        /* --- VIDEO CARD GLASS STYLE --- */
+        /* --- VIDEO CARD LAYOUT (From Reference) --- */
         .video-list {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 25px;
+            margin-bottom: 50px;
         }
 
         .video-card {
@@ -76,16 +67,16 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            padding: 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .video-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(192, 132, 252, 0.4);
-            box-shadow: 0 20px 40px rgba(192, 132, 252, 0.1);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(192, 132, 252, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
         .card-header {
@@ -95,68 +86,55 @@
             margin-bottom: 20px;
         }
 
-        /* --- NICHE TAGS (Apple Style Pill) --- */
+        /* --- NICHE TAGS (Apple Pill Style) --- */
         .niche {
-            padding: 6px 16px;
+            padding: 5px 15px;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #ffffff;
         }
 
-        .niche.geo-politics { background: rgba(31, 111, 235, 0.2); color: #58a6ff; border: 1px solid rgba(31, 111, 235, 0.3); }
-        .niche.what-if { background: rgba(192, 132, 252, 0.2); color: #d67fff; border: 1px solid rgba(192, 132, 252, 0.3); }
-        .niche.history { background: rgba(35, 134, 54, 0.2); color: #3fb950; border: 1px solid rgba(35, 134, 54, 0.3); }
+        .niche.geo-politics { background-color: rgba(31, 111, 235, 0.3); border: 1px solid #1f6feb; }
+        .niche.what-if { background-color: rgba(192, 132, 252, 0.3); border: 1px solid #c084fc; }
+        .niche.history { background-color: rgba(35, 134, 54, 0.3); border: 1px solid #238636; }
 
-        .card-topic h3 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-        }
-
-        /* --- CHECKBOX PROGRESS --- */
-        .card-progress {
-            margin-top: 20px;
-        }
-
+        /* --- CHECKBOX & PROGRESS --- */
         .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
-            margin-bottom: 25px;
-            background: rgba(255,255,255,0.03);
+            margin: 20px 0;
+            background: rgba(0,0,0,0.2);
             padding: 15px;
-            border-radius: 15px;
+            border-radius: 12px;
         }
 
         .card-progress label {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             cursor: pointer;
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            transition: 0.2s;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
-
-        .card-progress label:hover { color: #fff; }
 
         .card-progress input[type="checkbox"] {
             width: 18px;
             height: 18px;
-            accent-color: var(--apple-purple);
-            cursor: pointer;
+            accent-color: var(--accent-purple);
         }
 
-        /* --- GLASS TEXTAREA --- */
+        /* --- SCRIPT AREA (Liquid Glass Input) --- */
         textarea {
             width: 100%;
             min-height: 120px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.3);
             border: 1px solid var(--glass-border);
-            border-radius: 16px;
+            border-radius: 12px;
             padding: 15px;
-            color: var(--text-main);
+            color: var(--text-primary);
+            font-family: inherit;
             font-size: 1rem;
             resize: vertical;
             transition: 0.3s;
@@ -164,34 +142,77 @@
 
         textarea:focus {
             outline: none;
-            border-color: var(--apple-purple);
-            background: rgba(0, 0, 0, 0.4);
-            box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.1);
         }
 
-        /* --- TELEGRAM STICKY --- */
-        .telegram-btn {
+        /* --- COURSES SECTION (Original Content) --- */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .course-card h3 { margin-bottom: 10px; }
+        .price { font-size: 1.5rem; font-weight: 700; margin: 15px 0; }
+        .old { text-decoration: line-through; color: var(--text-secondary); font-size: 1rem; margin-left: 10px; }
+
+        .btn-buy {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover {
+            background: var(--apple-blue);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(0, 113, 227, 0.4);
+        }
+
+        /* --- STEPS & OFFER --- */
+        .offer {
+            background: linear-gradient(90deg, #4158D0, #C850C0, #FFCC70);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 800;
+            margin: 40px 0;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        .telegram-sticky {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #229ED9;
+            bottom: 25px;
+            right: 25px;
+            background: #0088cc;
             color: white;
             padding: 15px 25px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             z-index: 1000;
-        }
-
-        .telegram-btn:hover { transform: scale(1.05); }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            .video-card { padding: 20px; }
-            .checkbox-group { flex-direction: column; }
         }
     </style>
 </head>
@@ -199,58 +220,76 @@
 
 <div class="container">
     <header>
-        <h1>Creative Workspace</h1>
-        <p style="color: var(--text-dim);">Manage your premium video projects</p>
+        <h1>Course Bazaar</h1>
     </header>
 
-    <h2>Active Projects</h2>
+    <div class="courses-grid">
+        <div class="course-card">
+            <h3>Video Editing Mastery</h3>
+            <p>Beginner to Advanced</p>
+            <div class="price">₹499 <span class="old">₹1999</span></div>
+            <a href="#" class="btn-buy">Get Course</a>
+        </div>
+        <div class="course-card">
+            <h3>YouTube + AI</h3>
+            <p>Grow Channel Fast</p>
+            <div class="price">₹199 <span class="old">₹999</span></div>
+            <a href="#" class="btn-buy">Get Course</a>
+        </div>
+    </div>
 
+    <div class="offer">
+        🔥 LIMITED TIME OFFER – BUY 1 GET 2 FREE 🔥
+    </div>
+
+    <h2>Video Project Tracker</h2>
+    
     <div class="video-list">
         <div class="video-card">
             <div class="card-header">
                 <span class="niche geo-politics">Geo-Politics</span>
-                <span style="color: var(--text-dim); font-size: 0.8rem;">ID: #001</span>
+                <h4>Project ID: #V01</h4>
             </div>
             <div class="card-topic">
-                <h3>The Future of AI in Warfare</h3>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Deep dive into tech & borders.</p>
+                <h3>Global Trade Shift 2025</h3>
             </div>
             <div class="card-progress">
                 <div class="checkbox-group">
                     <label><input type="checkbox"> Research</label>
-                    <label><input type="checkbox"> Scripting</label>
-                    <label><input type="checkbox"> Voiceover</label>
-                    <label><input type="checkbox"> Editing</label>
+                    <label><input type="checkbox"> Script</label>
+                    <label><input type="checkbox"> Voice</label>
+                    <label><input type="checkbox"> Edit</label>
                 </div>
-                <h4>Script Notes:</h4>
-                <textarea placeholder="Write your main hook or script points here..."></textarea>
+                <textarea placeholder="Paste your script or video notes here..."></textarea>
             </div>
         </div>
 
         <div class="video-card">
             <div class="card-header">
                 <span class="niche what-if">What If</span>
-                <span style="color: var(--text-dim); font-size: 0.8rem;">ID: #002</span>
+                <h4>Project ID: #V02</h4>
             </div>
             <div class="card-topic">
-                <h3>If Oceans Dried Up Tomorrow</h3>
-                <p style="color: var(--text-dim); font-size: 0.9rem;">Scientific simulation video.</p>
+                <h3>If AI Controlled the Sun</h3>
             </div>
             <div class="card-progress">
                 <div class="checkbox-group">
-                    <label><input type="checkbox"> Research</label>
-                    <label><input type="checkbox"> Scripting</label>
-                    <label><input type="checkbox" checked> Voiceover</label>
-                    <label><input type="checkbox"> Editing</label>
+                    <label><input type="checkbox" checked> Research</label>
+                    <label><input type="checkbox"> Script</label>
+                    <label><input type="checkbox"> Voice</label>
+                    <label><input type="checkbox"> Edit</label>
                 </div>
-                <h4>Script Notes:</h4>
-                <textarea placeholder="Start drafting the storytelling..."></textarea>
+                <textarea placeholder="Scientific points for the simulation..."></textarea>
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>© 2025 Course Bazaar | Premium Learning Dashboard</p>
+    </footer>
 </div>
 
-<a href="https://t.me/YOUR_LINK" class="telegram-btn">💬 Join Discussion</a>
+<a href="#" class="telegram-sticky">💬 Join Telegram</a>
 
 </body>
 </html>
