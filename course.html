@@ -3,295 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course Bazaar | Premium Learning</title>
+    <title>Video Project Dashboard | Apple Liquid Glass</title>
     <style>
-        /* --- MODERN APPLE GLASS THEME --- */
+        /* --- APPLE LIQUID GLASS VARIABLES --- */
         :root {
-            --glass: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.15);
+            --glass: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --apple-purple: #c084fc;
             --apple-blue: #0071e3;
-            --accent-gradient: linear-gradient(135deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
-            --bg-color: #000000;
+            --bg-dark: #060608;
+            --text-main: #e6edf3;
+            --text-dim: #8b949e;
         }
 
+        /* --- GLOBAL RESET --- */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
+            /* Liquid Mesh Gradient Background */
             background-image: 
-                radial-gradient(at 0% 0%, rgba(65, 88, 208, 0.2) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(200, 80, 192, 0.2) 0px, transparent 50%),
-                radial-gradient(at 50% 100%, rgba(0, 113, 227, 0.15) 0px, transparent 50%);
-            color: #ffffff;
+                radial-gradient(at 0% 0%, rgba(192, 132, 252, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 113, 227, 0.15) 0px, transparent 50%);
+            color: var(--text-main);
             line-height: 1.6;
             min-height: 100vh;
             padding: 20px;
         }
 
-        h2 {
+        .container {
+            width: 95%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        header {
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin: 40px 0;
-            background: linear-gradient(to bottom, #fff, #888);
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #c084fc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
         }
 
-        /* --- COURSES SECTION --- */
-        #courses {
-            max-width: 1100px;
-            margin: 0 auto;
+        h2 {
+            font-size: 1.8rem;
+            color: var(--apple-purple);
+            margin: 40px 0 25px;
+            text-align: center;
+            font-weight: 600;
         }
 
-        .courses {
+        /* --- VIDEO CARD GLASS STYLE --- */
+        .video-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 20px 0;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
-        .course {
+        .video-card {
             background: var(--glass);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            border-radius: 24px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .course:hover {
-            transform: translateY(-12px);
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(192, 132, 252, 0.4);
+            box-shadow: 0 20px 40px rgba(192, 132, 252, 0.1);
         }
 
-        .course h3 {
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        /* --- NICHE TAGS (Apple Style Pill) --- */
+        .niche {
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .niche.geo-politics { background: rgba(31, 111, 235, 0.2); color: #58a6ff; border: 1px solid rgba(31, 111, 235, 0.3); }
+        .niche.what-if { background: rgba(192, 132, 252, 0.2); color: #d67fff; border: 1px solid rgba(192, 132, 252, 0.3); }
+        .niche.history { background: rgba(35, 134, 54, 0.2); color: #3fb950; border: 1px solid rgba(35, 134, 54, 0.3); }
+
+        .card-topic h3 {
             font-size: 1.6rem;
-            margin-bottom: 12px;
-            font-weight: 600;
+            margin-bottom: 10px;
         }
 
-        .course p {
-            color: #a1a1a6;
-            font-size: 1rem;
+        /* --- CHECKBOX PROGRESS --- */
+        .card-progress {
+            margin-top: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 25px;
-        }
-
-        .price {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: #fff;
-        }
-
-        .old {
-            font-size: 1.1rem;
-            text-decoration: line-through;
-            color: #6e6e73;
-            margin-left: 8px;
-            font-weight: 400;
-        }
-
-        .course a {
-            display: block;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-        .course a:hover {
-            background: var(--apple-blue);
-            color: #fff;
-        }
-
-        /* --- STEPS SECTION --- */
-        .steps {
-            max-width: 700px;
-            margin: 80px auto;
-            background: var(--glass);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-        }
-
-        .steps ol {
-            list-style: none;
-        }
-
-        .steps li {
-            padding: 18px;
-            margin-bottom: 12px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            font-size: 1.1rem;
-            border: 1px solid transparent;
-            transition: 0.3s;
-        }
-
-        .steps li:hover {
-            border-color: var(--glass-border);
-            background: rgba(255, 255, 255, 0.07);
-        }
-
-        /* --- OFFER BAR --- */
-        .offer {
-            background: var(--accent-gradient);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 1.2rem;
-            margin: 60px auto;
-            max-width: 900px;
-            box-shadow: 0 10px 30px rgba(200, 80, 192, 0.3);
-            animation: breathe 3s ease-in-out infinite;
-        }
-
-        @keyframes breathe {
-            0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.03); opacity: 1; }
-        }
-
-        /* --- FAQ --- */
-        .faq {
-            max-width: 700px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-
-        .faq p {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 20px;
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
             border-radius: 15px;
-            margin-bottom: 15px;
+        }
+
+        .card-progress label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            transition: 0.2s;
+        }
+
+        .card-progress label:hover { color: #fff; }
+
+        .card-progress input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--apple-purple);
+            cursor: pointer;
+        }
+
+        /* --- GLASS TEXTAREA --- */
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            background: rgba(0, 0, 0, 0.2);
             border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 15px;
+            color: var(--text-main);
+            font-size: 1rem;
+            resize: vertical;
+            transition: 0.3s;
         }
 
-        .faq b {
-            color: var(--apple-blue);
-            display: block;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
+        textarea:focus {
+            outline: none;
+            border-color: var(--apple-purple);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
         }
 
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            border-top: 1px solid var(--glass-border);
-            margin-top: 50px;
-            color: #6e6e73;
-        }
-
-        footer p { margin-bottom: 10px; }
-
-        /* --- TELEGRAM BUTTON --- */
+        /* --- TELEGRAM STICKY --- */
         .telegram-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #0088cc;
+            background: #229ED9;
             color: white;
-            padding: 16px 28px;
-            border-radius: 100px;
+            padding: 15px 25px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 15px 30px rgba(0, 136, 204, 0.3);
-            z-index: 9999;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: 0.3s;
+            z-index: 1000;
         }
 
-        .telegram-btn:hover {
-            transform: scale(1.1) translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 136, 204, 0.5);
-        }
+        .telegram-btn:hover { transform: scale(1.05); }
 
-        /* MOBILE OPTIMIZATION */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            h2 { font-size: 1.8rem; }
-            .course { padding: 30px 20px; }
-            .telegram-btn { bottom: 20px; right: 20px; padding: 12px 20px; font-size: 0.9rem; }
+            h1 { font-size: 2rem; }
+            .video-card { padding: 20px; }
+            .checkbox-group { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<section id="courses">
-    <h2>Popular Courses</h2>
-    <div class="courses">
-        <div class="course">
-            <h3>Video Editing Mastery</h3>
-            <p>Beginner to Advanced</p>
-            <div class="price">₹499 <span class="old">₹1999</span></div>
-            <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
+<div class="container">
+    <header>
+        <h1>Creative Workspace</h1>
+        <p style="color: var(--text-dim);">Manage your premium video projects</p>
+    </header>
+
+    <h2>Active Projects</h2>
+
+    <div class="video-list">
+        <div class="video-card">
+            <div class="card-header">
+                <span class="niche geo-politics">Geo-Politics</span>
+                <span style="color: var(--text-dim); font-size: 0.8rem;">ID: #001</span>
+            </div>
+            <div class="card-topic">
+                <h3>The Future of AI in Warfare</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Deep dive into tech & borders.</p>
+            </div>
+            <div class="card-progress">
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Research</label>
+                    <label><input type="checkbox"> Scripting</label>
+                    <label><input type="checkbox"> Voiceover</label>
+                    <label><input type="checkbox"> Editing</label>
+                </div>
+                <h4>Script Notes:</h4>
+                <textarea placeholder="Write your main hook or script points here..."></textarea>
+            </div>
         </div>
 
-        <div class="course">
-            <h3>YouTube + AI Course</h3>
-            <p>Grow Channel with AI</p>
-            <div class="price">₹199 <span class="old">₹999</span></div>
-            <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
-        </div>
-
-        <div class="course">
-            <h3>Trading & Stock Market</h3>
-            <p>Basics to Pro</p>
-            <div class="price">₹399 <span class="old">₹1999</span></div>
-            <a href="https://t.me/YOUR_TELEGRAM_LINK">Get Course</a>
+        <div class="video-card">
+            <div class="card-header">
+                <span class="niche what-if">What If</span>
+                <span style="color: var(--text-dim); font-size: 0.8rem;">ID: #002</span>
+            </div>
+            <div class="card-topic">
+                <h3>If Oceans Dried Up Tomorrow</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Scientific simulation video.</p>
+            </div>
+            <div class="card-progress">
+                <div class="checkbox-group">
+                    <label><input type="checkbox"> Research</label>
+                    <label><input type="checkbox"> Scripting</label>
+                    <label><input type="checkbox" checked> Voiceover</label>
+                    <label><input type="checkbox"> Editing</label>
+                </div>
+                <h4>Script Notes:</h4>
+                <textarea placeholder="Start drafting the storytelling..."></textarea>
+            </div>
         </div>
     </div>
-</section>
-
-<section class="steps">
-    <h2>How It Works?</h2>
-    <ol>
-        <li>1️⃣ Choose Your Course</li>
-        <li>2️⃣ Join Telegram</li>
-        <li>3️⃣ Pay via UPI</li>
-        <li>4️⃣ Get Instant Access 🚀</li>
-    </ol>
-</section>
-
-<div class="offer">
-    🔥 LIMITED TIME OFFER – BUY 1 GET 2 FREE 🔥
 </div>
 
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <p><b>Q: Is this genuine?</b> A: Yes, 100% genuine courses with verified content.</p>
-    <p><b>Q: Delivery time?</b> A: You will get instant access right after payment.</p>
-    <p><b>Q: Lifetime access?</b> A: Yes, you can watch the courses anytime, forever.</p>
-</section>
-
-<footer>
-    <p>© 2025 Course Bazaar - Premium Learning Experience</p>
-    <p>Privacy Policy | Terms & Conditions</p>
-</footer>
-
-<a class="telegram-btn" href="https://t.me/YOUR_TELEGRAM_LINK">
-    💬 Join Telegram Channel
-</a>
+<a href="https://t.me/YOUR_LINK" class="telegram-btn">💬 Join Discussion</a>
 
 </body>
 </html>
