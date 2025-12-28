@@ -1,295 +1,163 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course & Project Dashboard | Premium Glass</title>
-    <style>
-        /* --- APPLE LIQUID GLASS THEME (INTEGRATED) --- */
-        :root {
-            --bg-dark: #060709;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --accent-purple: #c084fc; /* Aapka reference color */
-            --apple-blue: #0071e3;
-            --text-primary: #f5f5f7;
-            --text-secondary: #86868b;
-        }
+<style>
+/* Global Styles - Image jaisa dark background */
+body {
+    background-color: #0b0e14;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+/* Headings - Purple color aur Gradient Underline */
+h2 {
+    color: #a855f7; /* Neon Purple */
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-dark);
-            /* Mesh Gradient for "Liquid" look */
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(192, 132, 252, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(0, 113, 227, 0.1) 0px, transparent 50%);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 20px;
-        }
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #22d3ee, #a855f7); /* Cyan to Purple gradient */
+    margin: 10px auto;
+    border-radius: 10px;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+/* Course Container - Flexbox for layout */
+.courses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+}
 
-        h1, h2 {
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 30px;
-            letter-spacing: -0.02em;
-        }
+/* Course Cards - Screenshot ke 'Experience' box jaisa style */
+.course {
+    background: #161b22;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
 
-        h2 {
-            color: var(--accent-purple);
-            font-size: 2rem;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 15px;
-        }
+.course:hover {
+    transform: translateY(-5px);
+    border-color: #a855f7;
+}
 
-        /* --- VIDEO CARD LAYOUT (From Reference) --- */
-        .video-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-bottom: 50px;
-        }
+.course h3 {
+    color: #ffffff;
+    margin-top: 0;
+}
 
-        .video-card {
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 25px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #22d3ee;
+    margin: 15px 0;
+}
 
-        .video-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(192, 132, 252, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
+.price .old {
+    font-size: 1rem;
+    text-decoration: line-through;
+    color: #6b7280;
+    margin-left: 10px;
+}
 
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+/* Buttons - Screenshot ke 'Contact' buttons jaisa style */
+.course a, .telegram-btn {
+    display: block;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+    transition: 0.3s;
+}
 
-        /* --- NICHE TAGS (Apple Pill Style) --- */
-        .niche {
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #ffffff;
-        }
+.course a:hover {
+    background: #a855f7;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
 
-        .niche.geo-politics { background-color: rgba(31, 111, 235, 0.3); border: 1px solid #1f6feb; }
-        .niche.what-if { background-color: rgba(192, 132, 252, 0.3); border: 1px solid #c084fc; }
-        .niche.history { background-color: rgba(35, 134, 54, 0.3); border: 1px solid #238636; }
+/* Steps Section */
+.steps {
+    margin: 50px 0;
+}
 
-        /* --- CHECKBOX & PROGRESS --- */
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            border-radius: 12px;
-        }
+.steps ol {
+    list-style: none;
+    padding: 0;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
 
-        .card-progress label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
+.steps li {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #22d3ee;
+}
 
-        .card-progress input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--accent-purple);
-        }
+/* Offer Banner */
+.offer {
+    background: linear-gradient(90deg, #7e22ce, #a855f7);
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 15px;
+    margin: 40px 0;
+    animation: pulse 2s infinite;
+}
 
-        /* --- SCRIPT AREA (Liquid Glass Input) --- */
-        textarea {
-            width: 100%;
-            min-height: 120px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            padding: 15px;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 1rem;
-            resize: vertical;
-            transition: 0.3s;
-        }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
 
-        textarea:focus {
-            outline: none;
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.1);
-        }
+/* FAQ Section */
+.faq {
+    background: #161b22;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
 
-        /* --- COURSES SECTION (Original Content) --- */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
+.faq b {
+    color: #22d3ee;
+}
 
-        .course-card {
-            background: var(--glass);
-            padding: 30px;
-            border-radius: 24px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
+/* Sticky Telegram Button */
+.telegram-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #22d3ee !important;
+    color: #000 !important;
+    padding: 15px 25px !important;
+    border-radius: 50px !important;
+    z-index: 1000;
+}
 
-        .course-card h3 { margin-bottom: 10px; }
-        .price { font-size: 1.5rem; font-weight: 700; margin: 15px 0; }
-        .old { text-decoration: line-through; color: var(--text-secondary); font-size: 1rem; margin-left: 10px; }
-
-        .btn-buy {
-            display: inline-block;
-            background: #fff;
-            color: #000;
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-
-        .btn-buy:hover {
-            background: var(--apple-blue);
-            color: #fff;
-            box-shadow: 0 0 20px rgba(0, 113, 227, 0.4);
-        }
-
-        /* --- STEPS & OFFER --- */
-        .offer {
-            background: linear-gradient(90deg, #4158D0, #C850C0, #FFCC70);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            font-weight: 800;
-            margin: 40px 0;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-secondary);
-            padding: 40px 0;
-            font-size: 0.9rem;
-        }
-
-        .telegram-sticky {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #0088cc;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <h1>Course Bazaar</h1>
-    </header>
-
-    <div class="courses-grid">
-        <div class="course-card">
-            <h3>Video Editing Mastery</h3>
-            <p>Beginner to Advanced</p>
-            <div class="price">₹499 <span class="old">₹1999</span></div>
-            <a href="#" class="btn-buy">Get Course</a>
-        </div>
-        <div class="course-card">
-            <h3>YouTube + AI</h3>
-            <p>Grow Channel Fast</p>
-            <div class="price">₹199 <span class="old">₹999</span></div>
-            <a href="#" class="btn-buy">Get Course</a>
-        </div>
-    </div>
-
-    <div class="offer">
-        🔥 LIMITED TIME OFFER – BUY 1 GET 2 FREE 🔥
-    </div>
-
-    <h2>Video Project Tracker</h2>
-    
-    <div class="video-list">
-        <div class="video-card">
-            <div class="card-header">
-                <span class="niche geo-politics">Geo-Politics</span>
-                <h4>Project ID: #V01</h4>
-            </div>
-            <div class="card-topic">
-                <h3>Global Trade Shift 2025</h3>
-            </div>
-            <div class="card-progress">
-                <div class="checkbox-group">
-                    <label><input type="checkbox"> Research</label>
-                    <label><input type="checkbox"> Script</label>
-                    <label><input type="checkbox"> Voice</label>
-                    <label><input type="checkbox"> Edit</label>
-                </div>
-                <textarea placeholder="Paste your script or video notes here..."></textarea>
-            </div>
-        </div>
-
-        <div class="video-card">
-            <div class="card-header">
-                <span class="niche what-if">What If</span>
-                <h4>Project ID: #V02</h4>
-            </div>
-            <div class="card-topic">
-                <h3>If AI Controlled the Sun</h3>
-            </div>
-            <div class="card-progress">
-                <div class="checkbox-group">
-                    <label><input type="checkbox" checked> Research</label>
-                    <label><input type="checkbox"> Script</label>
-                    <label><input type="checkbox"> Voice</label>
-                    <label><input type="checkbox"> Edit</label>
-                </div>
-                <textarea placeholder="Scientific points for the simulation..."></textarea>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2025 Course Bazaar | Premium Learning Dashboard</p>
-    </footer>
-</div>
-
-<a href="#" class="telegram-sticky">💬 Join Telegram</a>
-
-</body>
-</html>
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+</style>
