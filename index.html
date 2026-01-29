@@ -3,27 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJAY PRABHAT | Visual Architect & 3D Master</title>
+    <title>Aditya Kumar | Visual Architect</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        body { background-color: #000; color: #fff; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .hero-title { line-height: 0.85; letter-spacing: -0.05em; }
-        .text-outline { -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); color: transparent; }
-        .img-box { position: relative; overflow: hidden; background-color: #111; aspect-ratio: 16/9; }
-        .img-box img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: all 0.6s ease; }
-        .work-card:hover img { filter: grayscale(0%); transform: scale(1.05); }
-        .circle-frame { border: 2px solid #dc2626; box-shadow: 0 0 30px rgba(220, 38, 38, 0.2); transition: transform 0.5s ease; }
-        .circle-frame:hover { transform: scale(1.02); }
-        .detail-item { border-left: 1px solid #333; padding-left: 1.5rem; margin-bottom: 1.5rem; transition: border-color 0.3s; }
-        .detail-item:hover { border-color: #dc2626; }
-        .highlight-text { color: #dc2626; font-weight: 700; }
+        /* Global Styles */
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
+
+        /* Hero Typography */
+        .hero-title { 
+            line-height: 0.85; 
+            letter-spacing: -0.05em; 
+        }
+
+        .text-outline { 
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); 
+            color: transparent; 
+        }
+
+        /* Interactive Elements */
+        .img-box { 
+            position: relative; 
+            overflow: hidden; 
+            background-color: #111; 
+            aspect-ratio: 16/9; 
+        }
+
+        .img-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            filter: grayscale(100%); 
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
+        }
+
+        .work-card:hover img { 
+            filter: grayscale(0%); 
+            transform: scale(1.05); 
+        }
+
+        /* Red Circle Profile Frame */
+        .circle-frame { 
+            border: 2px solid #dc2626; 
+            box-shadow: 0 0 40px rgba(220, 38, 38, 0.15); 
+            transition: transform 0.6s ease;
+        }
+        
+        .circle-frame:hover { 
+            transform: scale(1.02) rotate(2deg); 
+        }
+
+        /* Mastery List Styling */
+        .detail-item { 
+            border-left: 1px solid #222; 
+            padding-left: 1.5rem; 
+            margin-bottom: 2rem; 
+            transition: border-color 0.4s; 
+        }
+        
+        .detail-item:hover { 
+            border-color: #dc2626; 
+        }
+
+        /* Navigation Glassmorphism */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 p-8 flex justify-between items-center mix-blend-difference uppercase text-[10px] font-bold tracking-[0.3em]">
+    <nav class="fixed w-full z-50 p-6 md:px-20 flex justify-between items-center uppercase text-[10px] font-bold tracking-[0.4em]">
+        <div class="text-white">Aditya Kumar</div>
+        <div class="hidden md:flex space-x-10">
+            <a href="#work" class="hover:text-red-600 transition">Portfolio</a>
+            <a href="#mastery" class="hover:text-red-600 transition">Arsenal</a>
+            <a href="#about" class="hover:text-red-600 transition">Manifesto</a>
+            <a href="#contact" class="hover:text-red-600 transition">Sync</a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col md:flex-row items-center justify-between px-8 md:px-20 pt-32 pb-20">
+        <div class="z-10 order-2 md:order-1 mt-12 md:mt-0">
+            [span_0](start_span)<p class="text-[10px] uppercase tracking-[0.6em] text-zinc-500 mb-6 font-bold">Lakhimpur Kheri, UP[span_0](end_span)</p>
+            <h1 class="hero-title text-6xl md:text-[9rem] font-black uppercase">
+                I BUILD <br> <span class="text-outline">VISUALS.</span>
+            </h1>
+            <div class="mt-10 max-w-xl">
+                <p class="text-zinc-400 text-xl leading-relaxed">
+                    [span_1](start_span)I craft high-impact documentary-style narratives[span_1](end_span). [span_2](start_span)My mission is to build engaging content that commands attention from the first frame to the very last[span_2](end_span).
+                </p>
+                <div class="mt-8 flex items-center space-x-4">
+                    <span class="w-10 h-[1px] bg-red-600"></span>
+                    <p class="text-zinc-600 text-[10px] uppercase tracking-widest font-black">3D Generalist | VFX Artist | Motion Designer</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-1 md:order-2">
+            <div class="circle-frame w-72 h-72 md:w-[450px] md:h-[450px] rounded-full p-4">
+                <div class="w-full h-full rounded-full overflow-hidden bg-zinc-900 grayscale hover:grayscale-0 transition-all duration-1000">
+                    <img src="Photo.jpg" alt="Aditya Kumar" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mastery" class="py-40 px-8 md:px-20 border-t border-zinc-900 bg-black">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
+            <div>
+                <h2 class="text-xs uppercase tracking-[0.5em] text-red-600 font-bold mb-16 italic">01. Technical Arsenal</h2>
+                
+                <div class="detail-item">
+                    <h3 class="text-2xl font-black uppercase mb-3">3D Alchemy (Blender)</h3>
+                    <p class="text-zinc-500 leading-relaxed">
+                        In 2023, I achieved deep-level mastery of <span class="text-white font-bold">Blender</span> through the elite <span class="italic">"Master 3D with Professor of How"</span> course. I possess comprehensive knowledge of modeling, simulation, and high-quality environment building.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <h3 class="text-2xl font-black uppercase mb-3">VFX Compositing (After Effects)</h3>
+                    <p class="text-zinc-500 leading-relaxed">
+                        [span_3](start_span)Mastered <span class="text-white font-bold">After Effects (2024)</span> for high-end VFX and compositing[span_3](end_span). I specialize in seamless integration of CG elements into real-world footage.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <h3 class="text-2xl font-black uppercase mb-3">Documentary Post-Production</h3>
+                    <p class="text-zinc-500 leading-relaxed">
+                        Expert workflow across <span class="text-white font-bold">Premiere Pro, Photoshop, and DaVinci Resolve</span>. [span_4](start_span)I bridge technical precision with creative visual storytelling[span_4](end_span).
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-zinc-950 p-12 border border-zinc-900 flex flex-col justify-center">
+                <h3 class="text-xs uppercase tracking-[0.5em] text-zinc-600 font-bold mb-10">Creative Influence</h3>
+                <div class="grid grid-cols-2 gap-8 text-xs font-black uppercase tracking-widest text-zinc-500">
+                    <p class="hover:text-white transition">Neo / Fern</p>
+                    <p class="hover:text-white transition">Magnates Media</p>
+                    <p class="hover:text-white transition">Think School</p>
+                    <p class="hover:text-white transition">AiTelly</p>
+                    <p class="hover:text-white transition">Primal Space</p>
+                    <p class="hover:text-white transition">Dhruv Rathee</p>
+                    <p class="hover:text-white transition">Nitish Rajput</p>
+                    <p class="hover:text-white transition">Visual Identity</p>
+                </div>
+                <div class="mt-12 pt-12 border-t border-zinc-900">
+                    <p class="text-zinc-600 text-[10px] leading-loose italic">
+                        Years of dedicated R&D in a trial-and-test environment to meet the "Gold Standard" of visual production quality.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="py-32 px-8 md:px-20 bg-black">
+        <h2 class="text-xs uppercase tracking-[0.5em] text-zinc-600 font-bold mb-20 text-center">02. Selected Archive</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+            
+            <div class="work-card">
+                <div class="img-box mb-6"><img src="https://images.unsplash.com/photo-1614850715649-1d0106293bd1?q=80&w=1470" alt="3D"></div>
+                <h3 class="text-2xl font-black uppercase tracking-tighter">Neon Dystopia</h3>
+                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#BlenderMastery #R&D</p>
+            </div>
+
+            <div class="work-card">
+                <div class="img-box mb-6"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1470" alt="VFX"></div>
+                <h3 class="text-2xl font-black uppercase tracking-tighter">Reality Warp</h3>
+                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#VFXCompositing #AfterEffects</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-40 px-8 md:px-20 border-t border-zinc-900">
+        <div class="grid md:grid-cols-2 gap-20">
+            <h2 class="text-4xl font-black uppercase tracking-tighter italic">03. The Manifesto.</h2>
+            <div class="text-xl text-zinc-400 leading-relaxed space-y-8">
+                <p>
+                    [span_5](start_span)I have dedicated myself to mastering the 3D and video production pipeline since <span class="text-white font-bold">April 2020</span>[span_5](end_span). I don't just use software; I solve visual problems.
+                </p>
+                <p>
+                    I bring the same visual precision and storytelling depth to my work as the industry leaders I admire—from <span class="text-white underline">Think School's</span> clarity to <span class="text-white underline">Neo's</span> cinematic aesthetics.
+                </p>
+                <div class="pt-8 flex space-x-4">
+                    [span_6](start_span)<span class="bg-zinc-900 px-4 py-2 text-[10px] font-bold uppercase tracking-widest">UPMSP Science (2025)[span_6](end_span)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-40 px-8 md:px-20 text-center bg-zinc-950">
+        <p class="text-[10px] uppercase tracking-[0.5em] text-red-600 font-bold mb-10 italic">Ready to Collaborate</p>
+        <h2 class="text-5xl md:text-[8rem] font-black uppercase tracking-tighter mb-10">Start the <span class="text-outline">Engine.</span></h2>
+        [span_7](start_span)<a href="mailto:u956994gautam@gmail.com" class="text-2xl md:text-5xl font-black hover:text-red-600 transition underline underline-offset-8">u956994gautam@gmail.com[span_7](end_span)</a>
+    </section>
+
+    <footer class="p-10 text-center text-[10px] text-zinc-800 font-bold uppercase tracking-[0.5em] border-t border-zinc-900">
+        © 2026 Aditya Kumar. Visual Systems & Master 3D.
+    </footer>
+
+</body>
+</html>
+-[10px] font-bold tracking-[0.3em]">
         <div>AJAY PRABHAT</div>
         <div class="space-x-8">
             <a href="#work" class="hover:opacity-50 transition">Work</a>
