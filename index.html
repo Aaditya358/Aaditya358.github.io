@@ -3,251 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Kumar | Visual Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>Aditya | 3D & VFX</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
-        /* Global Styles */
-        body { 
-            background-color: #000; 
-            color: #fff; 
-            font-family: 'Inter', sans-serif; 
-            scroll-behavior: smooth; 
-            overflow-x: hidden;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            scroll-behavior: smooth;
         }
-
-        /* Hero Typography */
-        .hero-title { 
-            line-height: 0.85; 
-            letter-spacing: -0.05em; 
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+            color: transparent;
         }
-
-        .text-outline { 
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3); 
-            color: transparent; 
+        .skill-tag {
+            border: 1px solid #333;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
-
-        /* Interactive Elements */
-        .img-box { 
-            position: relative; 
-            overflow: hidden; 
-            background-color: #111; 
-            aspect-ratio: 16/9; 
+        .skill-tag:hover {
+            background: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
         }
-
-        .img-box img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            filter: grayscale(100%); 
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
-        }
-
-        .work-card:hover img { 
-            filter: grayscale(0%); 
-            transform: scale(1.05); 
-        }
-
-        /* Red Circle Profile Frame */
-        .circle-frame { 
-            border: 2px solid #dc2626; 
-            box-shadow: 0 0 40px rgba(220, 38, 38, 0.15); 
-            transition: transform 0.6s ease;
-        }
-        
-        .circle-frame:hover { 
-            transform: scale(1.02) rotate(2deg); 
-        }
-
-        /* Mastery List Styling */
-        .detail-item { 
-            border-left: 1px solid #222; 
-            padding-left: 1.5rem; 
-            margin-bottom: 2rem; 
-            transition: border-color 0.4s; 
-        }
-        
-        .detail-item:hover { 
-            border-color: #dc2626; 
-        }
-
-        /* Navigation Glassmorphism */
-        nav {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+        .hero-title {
+            line-height: 0.9;
         }
     </style>
 </head>
 <body>
 
-    <nav class="fixed w-full z-50 p-6 md:px-20 flex justify-between items-center uppercase text-[10px] font-bold tracking-[0.4em]">
-        <div class="text-white">Aditya Kumar</div>
-        <div class="hidden md:flex space-x-10">
-            <a href="#work" class="hover:text-red-600 transition">Portfolio</a>
-            <a href="#mastery" class="hover:text-red-600 transition">Arsenal</a>
-            <a href="#about" class="hover:text-red-600 transition">Manifesto</a>
-            <a href="#contact" class="hover:text-red-600 transition">Sync</a>
+    <nav class="fixed top-0 w-full z-50 py-6 px-8 md:px-20 flex justify-between items-center mix-blend-difference">
+        <div class="font-black text-xl tracking-tighter uppercase">Aditya</div>
+        <div class="space-x-8 text-xs font-bold uppercase tracking-widest hidden md:block">
+            <a href="#work" class="hover:opacity-50 transition">Work</a>
+            <a href="#about" class="hover:opacity-50 transition">About</a>
+            <a href="#contact" class="hover:opacity-50 transition">Contact</a>
         </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col md:flex-row items-center justify-between px-8 md:px-20 pt-32 pb-20">
-        <div class="z-10 order-2 md:order-1 mt-12 md:mt-0">
-            <p class="text-[10px] uppercase tracking-[0.6em] text-zinc-500 mb-6 font-bold">Lakhimpur Kheri, UP</p>
-            <h1 class="hero-title text-6xl md:text-[9rem] font-black uppercase">
-                I CRAFT <br> <span class="text-outline">VISUALS.</span>
-            </h1>
-            <div class="mt-10 max-w-xl">
-                <p class="text-zinc-400 text-xl leading-relaxed">
-                    I engineer high-impact documentary-style narratives that mirror the visual excellence of <span class="text-white font-semibold">Think School, Neo, and Fern</span>. Every frame is designed to captivate — from the first second to the final cut.
-                </p>
-                <div class="mt-8 flex items-center space-x-4">
-                    <span class="w-10 h-[1px] bg-red-600"></span>
-                    <p class="text-zinc-600 text-[10px] uppercase tracking-widest font-black">3D Generalist | VFX Artist | Motion Designer | Editor</p>
-                </div>
-            </div>
+    <section class="h-screen flex flex-col justify-center px-8 md:px-20">
+        <p class="text-xs uppercase tracking-[0.5em] mb-4 text-gray-500 font-bold">Based in India</p>
+        <h1 class="hero-title text-6xl md:text-[12rem] font-black uppercase tracking-tighter">
+            I Build <br> <span class="text-outline">Digital</span> Worlds.
+        </h1>
+        <div class="mt-12 flex flex-col md:flex-row md:items-center gap-6">
+            <p class="max-w-md text-gray-400 text-lg">
+                3D Generalist and VFX Artist specialized in turning complex ideas into high-impact visual stories.
+            </p>
+            <a href="#contact" class="bg-white text-black px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-gray-200 transition">
+                Let's Talk
+            </a>
         </div>
+    </section>
 
-        <div class="order-1 md:order-2">
-            <div class="circle-frame w-72 h-72 md:w-[450px] md:h-[450px] rounded-full p-4">
-                <div class="w-full h-full rounded-full overflow-hidden bg-zinc-900 grayscale hover:grayscale-0 transition-all duration-1000">
-                    <img src="Photo.jpg" alt="Aditya Kumar" class="w-full h-full object-cover">
+    <section id="work" class="py-20 px-8 md:px-20 border-t border-zinc-900">
+        <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500 font-bold mb-20 text-center">Featured Mastery</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="group cursor-pointer">
+                <div class="bg-zinc-900 aspect-video mb-6 overflow-hidden">
+                    <img src="YOUR_PROJECT_IMAGE.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Work">
                 </div>
+                <h3 class="text-2xl font-bold uppercase tracking-tighter">Cinematic Environment</h3>
+                <p class="text-gray-500 text-sm uppercase tracking-widest">3D Modeling / Lighting</p>
+            </div>
+            <div class="group cursor-pointer">
+                <div class="bg-zinc-900 aspect-video mb-6 overflow-hidden">
+                    <img src="YOUR_PROJECT_IMAGE.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Work">
+                </div>
+                <h3 class="text-2xl font-bold uppercase tracking-tighter">VFX Breakdown</h3>
+                <p class="text-gray-500 text-sm uppercase tracking-widest">After Effects / Compositing</p>
             </div>
         </div>
     </section>
 
-    <section id="mastery" class="py-40 px-8 md:px-20 border-t border-zinc-900 bg-black">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
-            <div>
-                <h2 class="text-xs uppercase tracking-[0.5em] text-red-600 font-bold mb-16 italic">01. Technical Arsenal</h2>
-                
-                <div class="detail-item">
-                    <h3 class="text-2xl font-black uppercase mb-3">3D Alchemy (Blender)</h3>
-                    <p class="text-zinc-500 leading-relaxed">
-                        In <span class="text-white font-bold">2023</span>, I achieved comprehensive mastery of <span class="text-white font-bold">Blender</span> through the elite <span class="italic">"Master 3D with Professor of How"</span> program. I command deep expertise in hard-surface modeling, physics simulations, procedural environments, and cinematic lighting systems. I create the same caliber of 3D visuals seen on YouTube's top-tier documentary channels.
-                    </p>
-                </div>
-
-                <div class="detail-item">
-                    <h3 class="text-2xl font-black uppercase mb-3">VFX Compositing (After Effects)</h3>
-                    <p class="text-zinc-500 leading-relaxed">
-                        <span class="text-white font-bold">2024</span> marked my deep dive into <span class="text-white font-bold">After Effects</span> for professional VFX compositing. I specialize in seamless CG integration, advanced tracking, rotoscoping, and particle systems. My work blurs the line between reality and imagination — creating visuals that feel impossibly real.
-                    </p>
-                </div>
-
-                <div class="detail-item">
-                    <h3 class="text-2xl font-black uppercase mb-3">Documentary Post-Production</h3>
-                    <p class="text-zinc-500 leading-relaxed">
-                        I operate a complete post-production pipeline: <span class="text-white font-bold">Premiere Pro</span> for precision editing, <span class="text-white font-bold">DaVinci Resolve</span> for cinematic color grading, and <span class="text-white font-bold">Photoshop</span> for visual asset creation. From rough cut to final export — I deliver broadcast-ready quality at every stage.
-                    </p>
-                </div>
-
-                <div class="detail-item">
-                    <h3 class="text-2xl font-black uppercase mb-3">The "Fern-Neo" Visual Language</h3>
-                    <p class="text-zinc-500 leading-relaxed">
-                        I have reverse-engineered and mastered the <span class="text-white font-bold">3D documentary aesthetic</span> pioneered by channels like <span class="italic">Fern, Neo, and Lume</span> — cinematic camera movements, dramatic volumetric lighting, and story-driven visuals that drive millions of views.
-                    </p>
-                </div>
-            </div>
-
-            <div class="bg-zinc-950 p-12 border border-zinc-900 flex flex-col justify-center">
-                <h3 class="text-xs uppercase tracking-[0.5em] text-zinc-600 font-bold mb-10">Creative Influence</h3>
-                <div class="grid grid-cols-2 gap-8 text-xs font-black uppercase tracking-widest text-zinc-500">
-                    <p class="hover:text-white transition">Neo</p>
-                    <p class="hover:text-white transition">Fern</p>
-                    <p class="hover:text-white transition">Think School</p>
-                    <p class="hover:text-white transition">Magnates Media</p>
-                    <p class="hover:text-white transition">AiTelly</p>
-                    <p class="hover:text-white transition">Primal Space</p>
-                    <p class="hover:text-white transition">Dhruv Rathee</p>
-                    <p class="hover:text-white transition">Nitish Rajput</p>
-                    <p class="hover:text-white transition">Lume</p>
-                    <p class="hover:text-white transition">Visual Identity</p>
-                </div>
-                <div class="mt-12 pt-12 border-t border-zinc-900">
-                    <p class="text-zinc-600 text-[10px] leading-loose italic">
-                        "I have studied these creators frame-by-frame — dissecting their lighting, camera language, pacing, and storytelling. Years of dedicated R&D in a trial-and-test environment to meet the gold standard of visual production."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="work" class="py-32 px-8 md:px-20 bg-black">
-        <h2 class="text-xs uppercase tracking-[0.5em] text-zinc-600 font-bold mb-6 text-center">02. Selected Archive</h2>
-        <p class="text-center text-zinc-600 text-sm mb-20 max-w-2xl mx-auto">R&D renders and experimental projects — skills refined through relentless trial-and-test iterations, ready for real-world deployment.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-            
-            <div class="work-card">
-                <div class="img-box mb-6"><img src="https://images.unsplash.com/photo-1614850715649-1d0106293bd1?q=80&w=1470" alt="3D Environment"></div>
-                <h3 class="text-2xl font-black uppercase tracking-tighter">Neon Dystopia</h3>
-                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#BlenderMastery #EnvironmentDesign #Lighting</p>
-                <p class="text-zinc-500 text-sm mt-4">Complete 3D environment build — modeling, texturing, and cinematic lighting designed for documentary-style storytelling.</p>
-            </div>
-
-            <div class="work-card">
-                <div class="img-box mb-6"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1470" alt="VFX Composite"></div>
-                <h3 class="text-2xl font-black uppercase tracking-tighter">Reality Warp</h3>
-                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#VFXCompositing #AfterEffects #Integration</p>
-                <p class="text-zinc-500 text-sm mt-4">Seamless integration of 3D elements into live footage — tracking, color matching, and invisible compositing.</p>
-            </div>
-
-            <div class="work-card">
-                <div class="img-box mb-6"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470" alt="Documentary Edit"></div>
-                <h3 class="text-2xl font-black uppercase tracking-tighter">Narrative Flow</h3>
-                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#PremierePro #Storytelling #Pacing</p>
-                <p class="text-zinc-500 text-sm mt-4">Think School-inspired documentary edit — engaging rhythm, strategic pacing, and impactful narrative structure.</p>
-            </div>
-
-            <div class="work-card">
-                <div class="img-box mb-6"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1470" alt="Motion Graphics"></div>
-                <h3 class="text-2xl font-black uppercase tracking-tighter">Motion Systems</h3>
-                <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#AfterEffects #Animation #MotionDesign</p>
-                <p class="text-zinc-500 text-sm mt-4">Dynamic text animations, kinetic typography, and infographic elements crafted for documentary enhancement.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="about" class="py-40 px-8 md:px-20 border-t border-zinc-900">
+    <section id="about" class="py-40 px-8 md:px-20 bg-[#0a0a0a]">
         <div class="grid md:grid-cols-2 gap-20">
-            <h2 class="text-4xl font-black uppercase tracking-tighter italic">03. The Manifesto.</h2>
-            <div class="text-xl text-zinc-400 leading-relaxed space-y-8">
-                <p>
-                    Since <span class="text-white font-bold">April 2020</span>, I have dedicated myself to mastering the complete 3D and video production pipeline. Five years of obsessive learning — every tool understood at its core, every technique refined through hundreds of iterations.
+            <div>
+                <h2 class="text-4xl font-black uppercase tracking-tighter mb-8">The Profile</h2>
+                <p class="text-xl text-gray-400 leading-relaxed">
+                    With 4 years of relentless dedication to the production pipeline, I bridge the gap between imagination and final render. I recently completed my 12th in 2025, but my work reflects years of professional-grade experimentation.
                 </p>
-                <p>
-                    I don't just use software — I <span class="text-white font-semibold">solve visual problems</span>. Whether it's a complex 3D scene that needs to feel cinematic or a documentary that needs to hold attention for 20 minutes, I know how to deliver.
+            </div>
+            <div>
+                <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500 font-bold mb-8">Tools of Trade</h2>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-tag">Blender</span>
+                    <span class="skill-tag">After Effects</span>
+                    <span class="skill-tag">Premiere Pro</span>
+                    <span class="skill-tag">Photoshop</span>
+                    <span class="skill-tag">DaVinci Resolve</span>
+                    <span class="skill-tag">Adobe Suite</span>
+                </div>
+                <p class="mt-8 text-sm text-gray-500 italic">
+                    Expertise in 3D modeling, animation, VFX, and stylized motion design.
                 </p>
-                <p>
-                    I bring the same visual precision and storytelling depth as the industry leaders I've studied — from <span class="text-white underline">Think School's</span> clarity to <span class="text-white underline">Neo's</span> cinematic aesthetics. Now I'm ready to deploy these skills on <span class="text-white font-semibold">real-world projects</span>.
-                </p>
-                <div class="pt-8 flex flex-wrap gap-4">
-                    <span class="bg-zinc-900 px-4 py-2 text-[10px] font-bold uppercase tracking-widest">5+ Years Training</span>
-                    <span class="bg-zinc-900 px-4 py-2 text-[10px] font-bold uppercase tracking-widest">UPMSP Science (2025)</span>
-                    <span class="bg-red-900/30 border border-red-800 px-4 py-2 text-[10px] font-bold uppercase tracking-widest text-red-500">Available for Work</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-8 md:px-20 border-b border-zinc-900">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-10">
+            <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500 font-bold">Timeline</h2>
+            <div class="max-w-2xl">
+                <div class="border-b border-zinc-800 pb-10 mb-10">
+                    <h3 class="text-2xl font-bold uppercase tracking-tighter mb-2">2022 — 2025</h3>
+                    <p class="text-gray-400 uppercase text-xs tracking-widest mb-4">Production Pipeline Mastery</p>
+                    <p class="text-zinc-500">Dedicated development of advanced skills in 3D modeling, animation, and high-end VFX through self-directed projects.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-40 px-8 md:px-20 text-center bg-zinc-950">
-        <p class="text-[10px] uppercase tracking-[0.5em] text-red-600 font-bold mb-10 italic">Ready to Collaborate</p>
-        <h2 class="text-5xl md:text-[8rem] font-black uppercase tracking-tighter mb-6">Start the <span class="text-outline">Engine.</span></h2>
-        <p class="text-zinc-500 text-lg mb-10 max-w-xl mx-auto">Your next documentary, explainer video, or 3D project — delivered with premium quality and obsessive attention to detail.</p>
-        <a href="mailto:u956994gautam@gmail.com" class="text-2xl md:text-5xl font-black hover:text-red-600 transition underline underline-offset-8">u956994gautam@gmail.com</a>
-        <div class="mt-12 flex justify-center gap-8 text-zinc-600 text-xs uppercase tracking-widest">
-            <span>Quick Response</span>
-            <span>•</span>
-            <span>Flexible Rates</span>
-            <span>•</span>
-            <span>Quality First</span>
+    <section id="contact" class="py-40 px-8 md:px-20 text-center">
+        <h2 class="text-6xl md:text-[10rem] font-black uppercase tracking-tighter mb-10">Start a <br> <span class="text-outline">Project.</span></h2>
+        <a href="mailto:hello@aditya.design" class="text-xl md:text-3xl font-bold hover:text-gray-400 transition underline underline-offset-8">hello@aditya.design</a>
+        
+        <div class="mt-20 flex justify-center space-x-10 text-xs uppercase font-bold tracking-[0.3em] text-gray-600">
+            <a href="#" class="hover:text-white transition">Instagram</a>
+            <a href="#" class="hover:text-white transition">Artstation</a>
+            <a href="#" class="hover:text-white transition">LinkedIn</a>
         </div>
     </section>
 
-    <footer class="p-10 text-center text-[10px] text-zinc-800 font-bold uppercase tracking-[0.5em] border-t border-zinc-900">
-        © 2026 Aditya Kumar. Visual Systems & Master 3D.
+    <footer class="py-10 text-center text-[10px] text-zinc-800 uppercase tracking-widest">
+        &copy; 2026 Aditya. Visual Solutions.
     </footer>
 
 </body>
