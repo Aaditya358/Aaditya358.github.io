@@ -3,136 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya | 3D & VFX</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>Aditya | 3D & VFX Artist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
+        /* CSS for High-End Studio Feel */
         body {
-            font-family: 'Inter', sans-serif;
             background-color: #000000;
             color: #ffffff;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
+        
+        /* The Hook: Big Bold Typography */
+        .hero-title {
+            line-height: 0.85;
+            letter-spacing: -0.05em;
+        }
+
+        /* Outline Text Style */
         .text-outline {
             -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
             color: transparent;
         }
-        .skill-tag {
-            border: 1px solid #333;
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+
+        /* Work Cards Hover Effect */
+        .work-card {
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .skill-tag:hover {
-            background: #ffffff;
-            color: #000000;
-            border-color: #ffffff;
+
+        .img-box {
+            position: relative;
+            overflow: hidden;
+            background-color: #111;
+            aspect-ratio: 16/9;
         }
-        .hero-title {
-            line-height: 0.9;
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%); /* Initial Hook: Focused on form */
+            transition: transform 0.8s ease, filter 0.5s ease;
+        }
+
+        .work-card:hover img {
+            filter: grayscale(0%); /* Reveal color on hover */
+            transform: scale(1.05);
+        }
+
+        /* Navigation Style */
+        nav a {
+            transition: opacity 0.3s;
+        }
+        nav a:hover {
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
 
-    <nav class="fixed top-0 w-full z-50 py-6 px-8 md:px-20 flex justify-between items-center mix-blend-difference">
-        <div class="font-black text-xl tracking-tighter uppercase">Aditya</div>
-        <div class="space-x-8 text-xs font-bold uppercase tracking-widest hidden md:block">
-            <a href="#work" class="hover:opacity-50 transition">Work</a>
-            <a href="#about" class="hover:opacity-50 transition">About</a>
-            <a href="#contact" class="hover:opacity-50 transition">Contact</a>
+    <nav class="fixed w-full z-50 p-8 flex justify-between items-center mix-blend-difference uppercase text-[10px] font-bold tracking-[0.3em]">
+        <div>Aditya</div>
+        <div class="space-x-8">
+            <a href="#work">Work</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
     <section class="h-screen flex flex-col justify-center px-8 md:px-20">
-        <p class="text-xs uppercase tracking-[0.5em] mb-4 text-gray-500 font-bold">Based in India</p>
-        <h1 class="hero-title text-6xl md:text-[12rem] font-black uppercase tracking-tighter">
-            I Build <br> <span class="text-outline">Digital</span> Worlds.
+        <p class="text-[10px] uppercase tracking-[0.5em] text-zinc-500 mb-6 font-bold">Based in India</p>
+        <h1 class="hero-title text-6xl md:text-[10rem] font-black uppercase">
+            I BUILD <br> <span class="text-outline">VISUALS.</span>
         </h1>
-        <div class="mt-12 flex flex-col md:flex-row md:items-center gap-6">
-            <p class="max-w-md text-gray-400 text-lg">
-                3D Generalist and VFX Artist specialized in turning complex ideas into high-impact visual stories.
+        <div class="mt-12 max-w-lg">
+            <p class="text-zinc-400 text-lg leading-relaxed">
+                3D Generalist & VFX Artist specializing in engaging content that attracts and compels audiences to watch till the end[cite: 9, 13].
             </p>
-            <a href="#contact" class="bg-white text-black px-10 py-4 font-bold uppercase text-xs tracking-widest hover:bg-gray-200 transition">
-                Let's Talk
-            </a>
         </div>
     </section>
 
-    <section id="work" class="py-20 px-8 md:px-20 border-t border-zinc-900">
-        <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500 font-bold mb-20 text-center">Featured Mastery</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="group cursor-pointer">
-                <div class="bg-zinc-900 aspect-video mb-6 overflow-hidden">
-                    <img src="YOUR_PROJECT_IMAGE.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Work">
+    <section id="work" class="py-32 px-8 md:px-20 border-t border-zinc-900 bg-black">
+        <div class="flex justify-between items-end mb-20">
+            <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter">Selected <br> <span class="text-outline">Archive.</span></h2>
+            <p class="text-zinc-600 text-[10px] uppercase font-bold tracking-widest hidden md:block">Scroll to explore</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+            
+            <div class="work-card">
+                <div class="img-box mb-6">
+                    <img src="https://images.unsplash.com/photo-1614850715649-1d0106293bd1?q=80&w=1470&auto=format&fit=crop" alt="Neon Dystopia">
                 </div>
-                <h3 class="text-2xl font-bold uppercase tracking-tighter">Cinematic Environment</h3>
-                <p class="text-gray-500 text-sm uppercase tracking-widest">3D Modeling / Lighting</p>
-            </div>
-            <div class="group cursor-pointer">
-                <div class="bg-zinc-900 aspect-video mb-6 overflow-hidden">
-                    <img src="YOUR_PROJECT_IMAGE.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Work">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold uppercase tracking-tighter">Neon Dystopia</h3>
+                        <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#Blender #Octane</p>
+                    </div>
+                    <div class="text-xl">↗</div>
                 </div>
-                <h3 class="text-2xl font-bold uppercase tracking-tighter">VFX Breakdown</h3>
-                <p class="text-gray-500 text-sm uppercase tracking-widest">After Effects / Compositing</p>
             </div>
+
+            <div class="work-card">
+                <div class="img-box mb-6">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1470&auto=format&fit=crop" alt="Reality Warp">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold uppercase tracking-tighter">Reality Warp</h3>
+                        <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#AfterEffects #Tracking</p>
+                    </div>
+                    <div class="text-xl">↗</div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="img-box mb-6">
+                    <img src="https://images.unsplash.com/photo-1492619334760-22402c01ca94?q=80&w=1471&auto=format&fit=crop" alt="Kinetic Type">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold uppercase tracking-tighter">Kinetic Type</h3>
+                        <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#PremierePro #Motion</p>
+                    </div>
+                    <div class="text-xl">↗</div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <div class="img-box mb-6">
+                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?q=80&w=1470&auto=format&fit=crop" alt="Stylized Hero">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-2xl font-bold uppercase tracking-tighter">Stylized Hero</h3>
+                        <p class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest mt-2">#Blender #ZBrush</p>
+                    </div>
+                    <div class="text-xl">↗</div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <section id="about" class="py-40 px-8 md:px-20 bg-[#0a0a0a]">
+    <section id="about" class="py-40 px-8 md:px-20">
         <div class="grid md:grid-cols-2 gap-20">
-            <div>
-                <h2 class="text-4xl font-black uppercase tracking-tighter mb-8">The Profile</h2>
-                <p class="text-xl text-gray-400 leading-relaxed">
-                    With 4 years of relentless dedication to the production pipeline, I bridge the gap between imagination and final render. I recently completed my 12th in 2025, but my work reflects years of professional-grade experimentation.
+            <h2 class="text-4xl font-black uppercase tracking-tighter">Since 2020.</h2>
+            <div class="text-xl text-zinc-400 leading-relaxed space-y-8">
+                <p>
+                    I have dedicated myself to mastering the 3D and video production pipeline. My journey began in April 2020, focusing on visual storytelling and motion design[cite: 12, 13, 21].
                 </p>
-            </div>
-            <div>
-                <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500 font-bold mb-8">Tools of Trade</h2>
                 <div class="flex flex-wrap gap-4">
-                    <span class="skill-tag">Blender</span>
-                    <span class="skill-tag">After Effects</span>
-                    <span class="skill-tag">Premiere Pro</span>
-                    <span class="skill-tag">Photoshop</span>
-                    <span class="skill-tag">DaVinci Resolve</span>
-                    <span class="skill-tag">Adobe Suite</span>
-                </div>
-                <p class="mt-8 text-sm text-gray-500 italic">
-                    Expertise in 3D modeling, animation, VFX, and stylized motion design.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-8 md:px-20 border-b border-zinc-900">
-        <div class="flex flex-col md:flex-row justify-between items-start gap-10">
-            <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500 font-bold">Timeline</h2>
-            <div class="max-w-2xl">
-                <div class="border-b border-zinc-800 pb-10 mb-10">
-                    <h3 class="text-2xl font-bold uppercase tracking-tighter mb-2">2022 — 2025</h3>
-                    <p class="text-gray-400 uppercase text-xs tracking-widest mb-4">Production Pipeline Mastery</p>
-                    <p class="text-zinc-500">Dedicated development of advanced skills in 3D modeling, animation, and high-end VFX through self-directed projects.</p>
+                    <span class="border border-zinc-800 px-4 py-2 text-xs font-bold uppercase tracking-widest">Blender</span>
+                    <span class="border border-zinc-800 px-4 py-2 text-xs font-bold uppercase tracking-widest">After Effects</span>
+                    <span class="border border-zinc-800 px-4 py-2 text-xs font-bold uppercase tracking-widest">DaVinci Resolve</span>
+                    <span class="border border-zinc-800 px-4 py-2 text-xs font-bold uppercase tracking-widest">Premiere Pro</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-40 px-8 md:px-20 text-center">
-        <h2 class="text-6xl md:text-[10rem] font-black uppercase tracking-tighter mb-10">Start a <br> <span class="text-outline">Project.</span></h2>
-        <a href="mailto:hello@aditya.design" class="text-xl md:text-3xl font-bold hover:text-gray-400 transition underline underline-offset-8">hello@aditya.design</a>
-        
-        <div class="mt-20 flex justify-center space-x-10 text-xs uppercase font-bold tracking-[0.3em] text-gray-600">
-            <a href="#" class="hover:text-white transition">Instagram</a>
-            <a href="#" class="hover:text-white transition">Artstation</a>
-            <a href="#" class="hover:text-white transition">LinkedIn</a>
-        </div>
+    <section id="contact" class="py-40 px-8 md:px-20 text-center bg-zinc-950">
+        <h2 class="text-5xl md:text-[8rem] font-black uppercase tracking-tighter mb-10">Let's <span class="text-outline">Sync.</span></h2>
+        <a href="mailto:u956994gautam@gmail.com" class="text-2xl md:text-4xl font-bold hover:text-zinc-500 transition underline underline-offset-8">u956994gautam@gmail.com</a> [cite: 2]
     </section>
 
-    <footer class="py-10 text-center text-[10px] text-zinc-800 uppercase tracking-widest">
-        &copy; 2026 Aditya. Visual Solutions.
+    <footer class="p-10 text-center text-[10px] text-zinc-800 font-bold uppercase tracking-[0.4em]">
+        © 2026 Aditya. Visual Systems.
     </footer>
 
 </body>
