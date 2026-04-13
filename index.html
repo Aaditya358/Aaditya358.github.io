@@ -3,300 +3,265 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aditya | Portfolio</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-
+  <title>Aditya | Creative Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;900&display=swap" rel="stylesheet">
   <style>
-    /* ===========================
-        Variables & Theme (Pure Black & White)
-       =========================== */
     :root {
-      --bg: #000000;
+      --bg: #050505;
       --text: #ffffff;
-      --text-muted: #a0a0a0;
       --accent: #ffffff;
-      --border: rgba(255, 255, 255, 0.15);
-      --nav-h: 70px;
-      --max-w: 1000px;
+      --muted: #666666;
+      --border: rgba(255, 255, 255, 0.1);
     }
 
-    /* ===========================
-        Base / Reset
-       =========================== */
-    * { 
-      box-sizing: border-box; 
-      margin: 0; 
-      padding: 0; 
-      font-family: 'Inter', sans-serif; 
-      scroll-behavior: smooth; 
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.4;
+      font-family: 'Inter', sans-serif;
       overflow-x: hidden;
+      line-height: 1.1;
     }
 
-    /* Important Words Styling */
-    .highlight {
-      font-size: 1.3em;
-      font-weight: 900;
-      color: var(--accent);
-      letter-spacing: -1px;
-      display: inline-block;
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+
+    /* Background Grain Effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://grainy-gradients.vercel.app/noise.svg');
+      opacity: 0.05;
+      pointer-events: none;
+      z-index: 9999;
     }
 
-    /* ===========================
-        Navigation
-       =========================== */
+    /* Navigation */
     nav {
       position: fixed;
-      top: 0;
-      width: 100%;
-      height: var(--nav-h);
+      top: 0; width: 100%;
+      padding: 30px 50px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid var(--border);
+      justify-content: space-between;
+      z-index: 100;
+      mix-blend-mode: difference;
     }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
     nav a {
-      color: var(--text-muted);
+      color: var(--text);
       text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: 0.3s;
+      font-size: 12px;
+      letter-spacing: 2px;
     }
 
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    /* ===========================
-        Hero Section
-       =========================== */
-    header {
-      min-height: 100vh;
+    /* Hero Section */
+    .hero {
+      height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 100px 20px;
+      padding: 0 20px;
     }
 
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      margin-bottom: 20px;
-      object-fit: cover;
-    }
-
-    h1 {
-      font-size: 5rem;
-      font-weight: 900;
-      letter-spacing: -3px;
-      line-height: 1;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    .hero-lead {
-      font-size: 1.5rem;
-      color: var(--text-muted);
-      max-width: 700px;
-    }
-
-    .btn-work {
-      margin-top: 40px;
-      padding: 15px 40px;
-      background: var(--accent);
-      color: #000;
-      text-decoration: none;
-      font-weight: 800;
-      border-radius: 5px;
-      text-transform: uppercase;
-      transition: 0.3s ease;
-    }
-
-    .btn-work:hover {
-      background: transparent;
-      color: var(--accent);
-      box-shadow: inset 0 0 0 2px var(--accent);
-    }
-
-    /* ===========================
-        Sections
-       =========================== */
-    main { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
-
-    section { padding: 100px 0; border-bottom: 1px solid var(--border); }
-
-    h2 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 40px;
-      text-transform: uppercase;
-      letter-spacing: -1.5px;
-    }
-
-    .content-box {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .skill-card {
-      padding: 30px;
-      border: 1px solid var(--border);
-      font-size: 1.5rem;
+    .hero h1 {
+      font-family: 'Syncopate', sans-serif;
+      font-size: clamp(3rem, 15vw, 10rem);
       font-weight: 700;
-      text-align: center;
-      transition: 0.3s;
+      text-transform: uppercase;
+      line-height: 0.8;
+      letter-spacing: -5px;
     }
 
-    .skill-card:hover {
-      background: var(--accent);
-      color: #000;
+    .hero h1 span {
+      display: block;
+      -webkit-text-stroke: 1px var(--text);
+      color: transparent;
+    }
+
+    .hero p {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      letter-spacing: 5px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* Big Text Section */
+    .about-big {
+      padding: 150px 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .big-para {
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .big-para span {
+      color: var(--muted);
+      transition: color 0.5s;
+    }
+
+    .big-para span:hover {
+      color: var(--text);
+      text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+
+    /* Skills */
+    .skills-section {
+      padding: 100px 50px;
+      border-top: 1px solid var(--border);
+    }
+
+    .skill-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+
+    .skill-row:hover {
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .skill-name { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; }
+    .skill-tool { color: var(--muted); font-size: 1.2rem; align-self: center; }
+
+    /* Work Button */
+    .cta-container {
+      padding: 100px 0;
+      text-align: center;
+    }
+    .big-btn {
+      font-size: 5vw;
+      font-family: 'Syncopate', sans-serif;
+      text-decoration: none;
+      color: var(--text);
+      border: 2px solid var(--text);
+      padding: 20px 60px;
+      border-radius: 100px;
+      transition: 0.4s;
+    }
+    .big-btn:hover {
+      background: var(--text);
+      color: var(--bg);
     }
 
     /* Contact */
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .contact-links a {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .contact-links a:hover {
-      padding-left: 20px;
-      color: var(--text-muted);
-    }
-
     footer {
-      text-align: center;
-      padding: 50px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      padding: 100px 50px;
+      background: #0a0a0a;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
     }
 
-    /* Animation */
-    [data-animate] {
+    .footer-left h2 { font-size: 4rem; margin-bottom: 20px; }
+    .footer-right { display: flex; flex-direction: column; gap: 20px; justify-content: flex-end; }
+    .footer-right a { color: var(--text); text-decoration: none; font-size: 1.5rem; font-weight: 700; }
+
+    /* Reveal Animation */
+    .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
+      transform: translateY(50px);
+      transition: all 1s ease-out;
     }
-
-    [data-animate].active {
+    .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Mobile Responsive */
     @media (max-width: 768px) {
-      h1 { font-size: 3rem; }
-      h2 { font-size: 2rem; }
-      nav ul { gap: 15px; }
-      nav a { font-size: 0.7rem; }
-      .contact-links a { font-size: 1.2rem; }
+      nav { padding: 20px; }
+      .footer-left h2 { font-size: 2.5rem; }
+      footer { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="projects.html" style="color: #fff; font-weight: 900;">Projects ↗</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#">ADITYA.</a>
+    <div style="display: flex; gap: 20px;">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
   </nav>
 
-  <header id="home">
-    <img class="profile-img" src="Profile_Photoo.jpg" alt="Aditya">
-    <h1>ADITYA</h1>
-    <p class="hero-lead">3D Generalist & <span class="highlight">VFX Artist</span></p>
-    <a href="projects.html" class="btn-work">View Projects</a>
-  </header>
+  <section class="hero">
+    <p class="reveal">2022 — 2026</p>
+    <h1>ADITYA <span>PRABHAT</span></h1>
+    <p class="reveal">3D Generalist • Video Editor • VFX</p>
+  </section>
 
-  <main>
-    <section id="about" data-animate>
-      <h2>About</h2>
-      <div class="content-box">
-        I am <span class="highlight">Aditya</span>, a creative powerhouse specializing in <span class="highlight">3D stylization</span> and motion design. 
-        With over <span class="highlight">4 Years</span> of self-taught experience, I build immersive visual stories that stand out. 
-        I recently cleared my 12th in 2025 and I am now pushing the boundaries of <span class="highlight">Visual Effects</span>.
-      </div>
-    </section>
+  <section id="about" class="about-big reveal">
+    <p class="big-para">
+      I AM <span>ADITYA</span>, A CREATIVE <span>3D ARTIST</span> AND <span>VFX SPECIALIST</span>. 
+      BUILDING IMMERSIVE <span>VISUAL STORIES</span> THROUGH MOTION, STYLE, AND <span>4 YEARS</span> OF CRAFT.
+    </p>
+  </section>
 
-    <section id="skills" data-animate>
-      <h2>Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill-card">BLENDER</div>
-        <div class="skill-card">AFTER EFFECTS</div>
-        <div class="skill-card">PREMIERE PRO</div>
-        <div class="skill-card">DAVINCI RESOLVE</div>
-        <div class="skill-card">PHOTOSHOP</div>
-        <div class="skill-card">VFX PIPELINE</div>
-      </div>
-    </section>
+  <section class="skills-section">
+    <div class="skill-row reveal">
+      <div class="skill-name">CGI & 3D</div>
+      <div class="skill-tool">BLENDER</div>
+    </div>
+    <div class="skill-row reveal">
+      <div class="skill-name">COMPOSITING</div>
+      <div class="skill-tool">AFTER EFFECTS</div>
+    </div>
+    <div class="skill-row reveal">
+      <div class="skill-name">POST PRODUCTION</div>
+      <div class="skill-tool">PREMIERE / DAVINCI</div>
+    </div>
+    <div class="skill-row reveal">
+      <div class="skill-name">MOTION DESIGN</div>
+      <div class="skill-tool">ADOBE SUITE</div>
+    </div>
+  </section>
 
-    <section id="contact" data-animate>
-      <h2>Let's Talk</h2>
-      <div class="contact-links">
-        <a href="mailto:aaditya808199@gmail.com">aaditya808199@gmail.com</a>
-        <a href="tel:+919569942903">+91 9569942903</a>
-        <a href="https://www.linkedin.com/in/Aditya358" target="_blank">LinkedIn Profile ↗</a>
-      </div>
-    </section>
-  </main>
+  <section id="work" class="cta-container reveal">
+    <a href="projects.html" class="big-btn">VIEW ALL WORK</a>
+  </section>
 
-  <footer>
-    <p>© 2025 ADITYA. ALL RIGHTS RESERVED.</p>
+  <footer id="contact">
+    <div class="footer-left">
+      <h2>LET'S MAKE<br>IT HAPPEN.</h2>
+      <p style="color: var(--muted)">Available for freelance projects.</p>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:aaditya808199@gmail.com">aaditya808199@gmail.com</a>
+      <a href="tel:+919569942903">+91 9569942903</a>
+      <a href="https://www.linkedin.com/in/Aditya358">LINKEDIN ↗</a>
+    </div>
   </footer>
 
   <script>
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
         }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal(); // Initial check
   </script>
 
 </body>
