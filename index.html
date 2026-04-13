@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aditya | Creative Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;900&display=swap" rel="stylesheet">
+  <title>Aditya | Visual Essayist & 3D Artist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050505;
-      --text: #ffffff;
+      --bg: #080808;
+      --text: #e0e0e0;
       --accent: #ffffff;
-      --muted: #666666;
-      --border: rgba(255, 255, 255, 0.1);
+      --dim: #555555;
+      --border: rgba(255, 255, 255, 0.08);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,247 +21,226 @@
       color: var(--text);
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
-      line-height: 1.1;
+      line-height: 1.5;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-
-    /* Background Grain Effect */
-    body::before {
+    /* Cinematic Grain Overlay */
+    body::after {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: url('https://grainy-gradients.vercel.app/noise.svg');
-      opacity: 0.05;
+      opacity: 0.03;
       pointer-events: none;
-      z-index: 9999;
+      z-index: 1000;
     }
 
-    /* Navigation */
     nav {
       position: fixed;
       top: 0; width: 100%;
-      padding: 30px 50px;
+      padding: 40px 5%;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       z-index: 100;
-      mix-blend-mode: difference;
     }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 2px;
-    }
+    nav .logo { font-family: 'Space+Grotesk'; font-weight: 700; letter-spacing: 2px; font-size: 1.2rem; }
+    nav .links a { color: var(--text); text-decoration: none; font-size: 0.8rem; margin-left: 30px; letter-spacing: 1px; opacity: 0.7; transition: 0.3s; }
+    nav .links a:hover { opacity: 1; }
 
-    /* Hero Section */
+    /* Hero: High-End Documentary Style */
     .hero {
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
+      padding: 0 10%;
+    }
+
+    .hero span.label {
+      font-family: 'Space+Grotesk';
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      color: var(--dim);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: block;
     }
 
     .hero h1 {
-      font-family: 'Syncopate', sans-serif;
-      font-size: clamp(3rem, 15vw, 10rem);
-      font-weight: 700;
-      text-transform: uppercase;
-      line-height: 0.8;
-      letter-spacing: -5px;
-    }
-
-    .hero h1 span {
-      display: block;
-      -webkit-text-stroke: 1px var(--text);
-      color: transparent;
-    }
-
-    .hero p {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      letter-spacing: 5px;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    /* Big Text Section */
-    .about-big {
-      padding: 150px 50px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .big-para {
-      font-size: clamp(2rem, 5vw, 4.5rem);
+      font-size: clamp(2.5rem, 8vw, 6.5rem);
       font-weight: 900;
-      letter-spacing: -2px;
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 30px;
     }
 
-    .big-para span {
-      color: var(--muted);
-      transition: color 0.5s;
+    .hero h1 em {
+      font-style: normal;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--accent);
     }
 
-    .big-para span:hover {
+    .hero-desc {
+      max-width: 600px;
+      font-size: 1.1rem;
+      color: var(--dim);
+      border-left: 1px solid var(--dim);
+      padding-left: 20px;
+    }
+
+    /* About: The Narrative approach */
+    .philosophy {
+      padding: 150px 10%;
+      background: #0a0a0a;
+    }
+
+    .philosophy h2 { font-family: 'Space+Grotesk'; font-size: 0.8rem; color: var(--dim); margin-bottom: 40px; letter-spacing: 3px; }
+    
+    .philosophy p {
+      font-size: clamp(1.5rem, 3vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
       color: var(--text);
-      text-shadow: 0 0 20px rgba(255,255,255,0.5);
     }
 
-    /* Skills */
-    .skills-section {
-      padding: 100px 50px;
-      border-top: 1px solid var(--border);
+    .philosophy p strong { color: var(--accent); font-weight: 900; }
+
+    /* Services: Specialized for Documentary Niche */
+    .services {
+      padding: 100px 10%;
     }
 
-    .skill-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border);
-      transition: padding 0.3s;
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
     }
 
-    .skill-row:hover {
-      padding: 40px 20px;
-      background: rgba(255,255,255,0.02);
-    }
-
-    .skill-name { font-size: 2.5rem; font-weight: 900; text-transform: uppercase; }
-    .skill-tool { color: var(--muted); font-size: 1.2rem; align-self: center; }
-
-    /* Work Button */
-    .cta-container {
-      padding: 100px 0;
-      text-align: center;
-    }
-    .big-btn {
-      font-size: 5vw;
-      font-family: 'Syncopate', sans-serif;
-      text-decoration: none;
-      color: var(--text);
-      border: 2px solid var(--text);
-      padding: 20px 60px;
-      border-radius: 100px;
+    .service-card {
+      padding: 40px;
+      border: 1px solid var(--border);
       transition: 0.4s;
     }
-    .big-btn:hover {
-      background: var(--text);
+
+    .service-card:hover {
+      background: #111;
+      border-color: var(--accent);
+    }
+
+    .service-card h3 { font-family: 'Space+Grotesk'; font-size: 1.5rem; margin-bottom: 15px; }
+    .service-card p { color: var(--dim); font-size: 0.95rem; }
+
+    /* CTA */
+    .cta {
+      padding: 150px 10%;
+      text-align: center;
+    }
+
+    .cta h2 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 900; margin-bottom: 40px; }
+    
+    .btn {
+      display: inline-block;
+      padding: 20px 50px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.4s;
+    }
+
+    .btn:hover {
+      background: var(--accent);
       color: var(--bg);
     }
 
-    /* Contact */
     footer {
-      padding: 100px 50px;
-      background: #0a0a0a;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      padding: 50px 10%;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      color: var(--dim);
+      font-size: 0.8rem;
     }
 
-    .footer-left h2 { font-size: 4rem; margin-bottom: 20px; }
-    .footer-right { display: flex; flex-direction: column; gap: 20px; justify-content: flex-end; }
-    .footer-right a { color: var(--text); text-decoration: none; font-size: 1.5rem; font-weight: 700; }
-
-    /* Reveal Animation */
-    .reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 1s ease-out;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) {
       nav { padding: 20px; }
-      .footer-left h2 { font-size: 2.5rem; }
-      footer { grid-template-columns: 1fr; }
+      .hero { padding: 0 5%; }
+      .philosophy p { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#">ADITYA.</a>
-    <div style="display: flex; gap: 20px;">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
+    <div class="logo">AJAY PRABHAT PRODUCTION</div>
+    <div class="links">
+      <a href="#work">Archive</a>
+      <a href="#contact">Inquiry</a>
     </div>
   </nav>
 
   <section class="hero">
-    <p class="reveal">2022 — 2026</p>
-    <h1>ADITYA <span>PRABHAT</span></h1>
-    <p class="reveal">3D Generalist • Video Editor • VFX</p>
+    <span class="label reveal">Visual Essayist • 3D Generalist</span>
+    <h1 class="reveal">CRAFTING <em>CINEMATIC</em> <br>INVESTIGATIONS.</h1>
+    <div class="hero-desc reveal">
+      Helping high-end educational and documentary creators visualize complex stories through advanced 3D motion and narrative-driven post-production.
+    </div>
   </section>
 
-  <section id="about" class="about-big reveal">
-    <p class="big-para">
-      I AM <span>ADITYA</span>, A CREATIVE <span>3D ARTIST</span> AND <span>VFX SPECIALIST</span>. 
-      BUILDING IMMERSIVE <span>VISUAL STORIES</span> THROUGH MOTION, STYLE, AND <span>4 YEARS</span> OF CRAFT.
+  <section class="philosophy">
+    <h2 class="reveal">PHILOSOPHY</h2>
+    <p class="reveal">
+      I believe that <strong>Information is Art.</strong> <br>
+      Whether it’s a deep-dive into history or a complex scientific breakdown, I build <strong>Visual Essays</strong> that don't just explain—they <strong>immerse.</strong>
     </p>
   </section>
 
-  <section class="skills-section">
-    <div class="skill-row reveal">
-      <div class="skill-name">CGI & 3D</div>
-      <div class="skill-tool">BLENDER</div>
-    </div>
-    <div class="skill-row reveal">
-      <div class="skill-name">COMPOSITING</div>
-      <div class="skill-tool">AFTER EFFECTS</div>
-    </div>
-    <div class="skill-row reveal">
-      <div class="skill-name">POST PRODUCTION</div>
-      <div class="skill-tool">PREMIERE / DAVINCI</div>
-    </div>
-    <div class="skill-row reveal">
-      <div class="skill-name">MOTION DESIGN</div>
-      <div class="skill-tool">ADOBE SUITE</div>
+  <section class="services">
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <h3>Cinematic 3D</h3>
+        <p>Advanced Blender pipelines for scientific visualization, historical recreations, and abstract environments inspired by the aesthetic of <em>LEMMiNO</em> and <em> fern</em>.</p>
+      </div>
+      <div class="service-card reveal">
+        <h3>Visual Storytelling</h3>
+        <p>Beyond simple cutting. I focus on narrative structure, pacing, and sound design to keep audiences engaged for 20+ minute deep dives.</p>
+      </div>
+      <div class="service-card reveal">
+        <h3>Information Design</h3>
+        <p>Custom data visualization, map animations, and technical motion graphics in <em>After Effects</em> that make complex data feel intuitive.</p>
+      </div>
     </div>
   </section>
 
-  <section id="work" class="cta-container reveal">
-    <a href="projects.html" class="big-btn">VIEW ALL WORK</a>
+  <section class="cta">
+    <h2 class="reveal">HAVE A STORY <br>WORTH TELLING?</h2>
+    <a href="mailto:aaditya808199@gmail.com" class="btn reveal">Start a Project</a>
   </section>
 
-  <footer id="contact">
-    <div class="footer-left">
-      <h2>LET'S MAKE<br>IT HAPPEN.</h2>
-      <p style="color: var(--muted)">Available for freelance projects.</p>
-    </div>
-    <div class="footer-right">
-      <a href="mailto:aaditya808199@gmail.com">aaditya808199@gmail.com</a>
-      <a href="tel:+919569942903">+91 9569942903</a>
-      <a href="https://www.linkedin.com/in/Aditya358">LINKEDIN ↗</a>
+  <footer>
+    <p>© 2026 ADITYA • LAKHIMPUR KHERI, UP (INDIA)</p>
+    <div>
+      <a href="https://www.linkedin.com/in/Aditya358" style="color: var(--dim); text-decoration: none;">LINKEDIN</a>
     </div>
   </footer>
 
   <script>
-    function reveal() {
-      var reveals = document.querySelectorAll(".reveal");
-      for (var i = 0; i < reveals.length; i++) {
-        var windowHeight = window.innerHeight;
-        var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
-        if (elementTop < windowHeight - elementVisible) {
-          reveals[i].classList.add("active");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
         }
-      }
-    }
-    window.addEventListener("scroll", reveal);
-    reveal(); // Initial check
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
 </body>
