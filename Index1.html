@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aditya | Visual Essayist & 3D Artist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+
+--bg:#080808;
+--text:#ececec;
+--accent:#ffffff;
+--dim:#6b6b6b;
+--border:rgba(255,255,255,.08);
+
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:var(--bg);
+color:var(--text);
+font-family:Inter,sans-serif;
+overflow-x:hidden;
+
+}
+
+body::after{
+
+content:"";
+position:fixed;
+inset:0;
+background:url("https://grainy-gradients.vercel.app/noise.svg");
+opacity:.03;
+pointer-events:none;
+z-index:999;
+
+}
+
+nav{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:35px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:100;
+backdrop-filter:blur(15px);
+
+}
+
+.logo{
+
+font-family:"Space Grotesk";
+font-size:1.2rem;
+font-weight:700;
+letter-spacing:2px;
+
+}
+
+.links{
+
+display:flex;
+gap:35px;
+
+}
+
+.links a{
+
+text-decoration:none;
+color:white;
+font-size:.8rem;
+letter-spacing:2px;
+opacity:.7;
+transition:.3s;
+
+}
+
+.links a:hover{
+
+opacity:1;
+
+}
+
+.hero{
+
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding:0 10%;
+
+}
+
+.label{
+
+font-family:"Space Grotesk";
+letter-spacing:4px;
+font-size:.8rem;
+color:var(--dim);
+margin-bottom:20px;
+
+}
+
+.hero h1{
+
+font-size:clamp(3rem,8vw,7rem);
+font-weight:900;
+line-height:.9;
+letter-spacing:-3px;
+
+}
+
+.hero h1 em{
+
+font-style:normal;
+color:transparent;
+-webkit-text-stroke:1px white;
+
+}
+
+.hero-desc{
+
+margin-top:40px;
+max-width:650px;
+border-left:1px solid #555;
+padding-left:20px;
+color:#8d8d8d;
+font-size:1.1rem;
+
+}
+
+/* philosophy */
+
+.philosophy{
+
+padding:140px 10%;
+background:#0c0c0c;
+
+}
+
+.philosophy h2{
+
+font-family:"Space Grotesk";
+letter-spacing:3px;
+font-size:.8rem;
+margin-bottom:40px;
+color:var(--dim);
+
+}
+
+.philosophy p{
+
+font-size:clamp(1.8rem,3vw,3rem);
+line-height:1.2;
+
+}
+
+.philosophy strong{
+
+font-weight:900;
+color:white;
+
+}
+
+/* FEATURED WORKS */
+
+.works{
+
+padding:140px 10%;
+
+}
+
+.section-title{
+
+font-family:"Space Grotesk";
+letter-spacing:3px;
+font-size:.8rem;
+color:var(--dim);
+margin-bottom:60px;
+
+}
+
+.work-grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+gap:45px;
+
+}
+
+.work-card{
+
+cursor:pointer;
+transition:.45s;
+
+}
+
+.work-thumb{
+
+position:relative;
+overflow:hidden;
+border-radius:16px;
+aspect-ratio:16/9;
+background:#111;
+
+}
+
+.work-thumb img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.8s;
+
+}
+
+.work-card:hover img{
+
+transform:scale(1.08);
+
+}
+
+.play{
+
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:85px;
+height:85px;
+border:2px solid white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+backdrop-filter:blur(8px);
+font-size:30px;
+transition:.35s;
+
+}
+
+.work-card:hover .play{
+
+transform:translate(-50%,-50%) scale(1.12);
+
+}
+
+.work-info{
+
+margin-top:25px;
+
+}
+
+.work-info h3{
+
+font-size:1.5rem;
+margin-bottom:10px;
+font-family:"Space Grotesk";
+
+}
+
+.work-info p{
+
+color:#888;
+
+}
+
+.meta{
+
+margin-top:15px;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+
+}
+
+.meta span{
+
+border:1px solid var(--border);
+padding:8px 15px;
+font-size:.75rem;
+letter-spacing:1px;
+
+}
+
+.reveal{
+
+opacity:0;
+transform:translateY(40px);
+transition:.8s;
+
+}
+
+.reveal.active{
+
+opacity:1;
+transform:none;
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+padding:0 6%;
+
+}
+
+.work-grid{
+
+grid-template-columns:1fr;
+
+}
+
+nav{
+
+padding:20px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+AJAY PRABHAT PRODUCTION
+</div>
+
+<div class="links">
+
+<a href="#works">WORK</a>
+
+<a href="#contact">CONTACT</a>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="label reveal">
+VISUAL ESSAYIST • 3D GENERALIST
+</div>
+
+<h1 class="reveal">
+CRAFTING
+<em>CINEMATIC</em>
+<br>
+INVESTIGATIONS.
+</h1>
+
+<div class="hero-desc reveal">
+
+Helping documentary creators,
+educators and brands transform
+complex ideas into immersive
+visual stories using Blender,
+After Effects and cinematic
+post production.
+
+</div>
+
+</section>
+
+<section class="philosophy">
+
+<h2 class="reveal">
+PHILOSOPHY
+</h2>
+
+<p class="reveal">
+
+I believe that
+<strong>Information is Art.</strong>
+
+Every frame should educate,
+engage and emotionally immerse
+the audience.
+
+</p>
+
+</section>
+
+<section id="works" class="works">
+
+<div class="section-title reveal">
+FEATURED WORKS
+</div>
+
+<div class="work-grid">
+
+<!-- Project 1 -->
+
+<div class="work-card reveal"
+data-video="videos/ashoka.mp4">
+
+<div class="work-thumb">
+
+<img src="images/ashoka.jpg">
+
+<div class="play">
+▶
+</div>
+
+</div>
+
+<div class="work-info">
+
+<h3>
+The Fall of Ashoka
+</h3>
+
+<p>
+Historical Documentary
+</p>
+
+<div class="meta">
+
+<span>8 MIN</span>
+
+<span>BLENDER</span>
+
+<span>AFTER EFFECTS</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 2 -->
+
+<div class="work-card reveal"
+data-video="videos/caste.mp4">
+
+<div class="work-thumb">
+
+<img src="images/caste.jpg">
+
+<div class="play">
+▶
+</div>
+
+</div>
+
+<div class="work-info">
+
+<h3>
+Caste System
+</h3>
+
+<p>
+Visual Essay
+</p>
+
+<div class="meta">
+
+<span>12 MIN</span>
+
+<span>PREMIERE PRO</span>
+
+<span>3D</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Project 3 -->
+
+<div class="work-card reveal"
+data-video="videos/showreel.mp4">
+
+<div class="work-thumb">
+
+<img src="images/showreel.jpg">
+
+<div class="play">
+▶
+</div>
+
+</div>
+
+<div class="work-info">
+
+<h3>
+2026 Showreel
+</h3>
+
+<p>
+Motion Design Showcase
+</p>
+
+<div class="meta">
+
+<span>3 MIN</span>
+
+<span>BLENDER</span>
+
+<span>AE</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- =========================
+     SERVICES
+========================== -->
+
+<section class="services">
+
+<div class="section-title reveal">
+SERVICES
+</div>
+
+<div class="service-grid">
+
+<div class="service-card reveal">
+
+<h3>Cinematic 3D</h3>
+
+<p>
+Advanced Blender workflows for
+historical recreations,
+scientific visualization,
+environments and documentary
+animation.
+</p>
+
+</div>
+
+<div class="service-card reveal">
+
+<h3>Visual Storytelling</h3>
+
+<p>
+Narrative editing,
+sound design,
+pacing and cinematic
+post-production built for
+long-form documentaries.
+</p>
+
+</div>
+
+<div class="service-card reveal">
+
+<h3>Motion Graphics</h3>
+
+<p>
+Clean data visualization,
+maps,
+titles and animated graphics
+created in After Effects.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     CTA
+========================== -->
+
+<section id="contact" class="cta">
+
+<h2 class="reveal">
+HAVE A STORY
+<br>
+WORTH TELLING?
+</h2>
+
+<a
+class="btn reveal"
+href="mailto:aaditya808199@gmail.com">
+
+START A PROJECT
+
+</a>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+<p>
+
+© 2026 ADITYA
+•
+LAKHIMPUR KHERI
+•
+INDIA
+
+</p>
+
+<a
+href="https://www.linkedin.com/in/Aditya358"
+target="_blank">
+
+LINKEDIN
+
+</a>
+
+</footer>
+
+<!-- =========================
+     VIDEO POPUP
+========================== -->
+
+<div id="videoModal">
+
+<div class="closeVideo">
+
+✕
+
+</div>
+
+<div class="videoContainer">
+
+<video
+id="portfolioVideo"
+controls
+playsinline>
+
+<source
+id="videoSource"
+src=""
+type="video/mp4">
+
+</video>
+
+</div>
+
+</div>
+
+<style>
+
+/* =========================
+   SERVICES
+========================= */
+
+.services{
+
+padding:140px 10%;
+
+}
+
+.service-grid{
+
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:35px;
+
+}
+
+.service-card{
+
+border:1px solid rgba(255,255,255,.08);
+
+padding:40px;
+
+transition:.35s;
+
+}
+
+.service-card:hover{
+
+background:#101010;
+
+transform:translateY(-8px);
+
+border-color:white;
+
+}
+
+.service-card h3{
+
+font-family:"Space Grotesk";
+
+font-size:1.5rem;
+
+margin-bottom:20px;
+
+}
+
+.service-card p{
+
+color:#888;
+
+line-height:1.7;
+
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+
+padding:180px 10%;
+
+text-align:center;
+
+}
+
+.cta h2{
+
+font-size:clamp(2.5rem,6vw,5rem);
+
+margin-bottom:50px;
+
+font-weight:900;
+
+}
+
+.btn{
+
+display:inline-block;
+
+padding:20px 55px;
+
+border:1px solid white;
+
+color:white;
+
+text-decoration:none;
+
+letter-spacing:2px;
+
+transition:.35s;
+
+}
+
+.btn:hover{
+
+background:white;
+
+color:black;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+padding:50px 10%;
+
+border-top:1px solid rgba(255,255,255,.08);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+}
+
+footer a{
+
+text-decoration:none;
+
+color:#888;
+
+}
+
+footer p{
+
+color:#666;
+
+}
+
+/* =========================
+   VIDEO MODAL
+========================= */
+
+#videoModal{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,.92);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.4s;
+
+z-index:9999;
+
+backdrop-filter:blur(10px);
+
+}
+
+#videoModal.active{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+.videoContainer{
+
+width:90%;
+
+max-width:1200px;
+
+}
+
+.videoContainer video{
+
+width:100%;
+
+border-radius:12px;
+
+outline:none;
+
+}
+
+.closeVideo{
+
+position:absolute;
+
+top:35px;
+
+right:45px;
+
+font-size:45px;
+
+cursor:pointer;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.closeVideo:hover{
+
+transform:rotate(90deg);
+
+}
+
+body.modal-open{
+
+overflow:hidden;
+
+}
+
+@media(max-width:768px){
+
+.videoContainer{
+
+width:95%;
+
+}
+
+.closeVideo{
+
+top:15px;
+
+right:20px;
+
+font-size:35px;
+
+}
+
+}
+
+</style>
+<script>
+
+/* ==========================
+   Scroll Reveal Animation
+========================== */
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("active");
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+document.querySelectorAll(".reveal").forEach((el)=>{
+    observer.observe(el);
+});
+
+
+/* ==========================
+   Video Modal
+========================== */
+
+const modal = document.getElementById("videoModal");
+
+const video = document.getElementById("portfolioVideo");
+
+const source = document.getElementById("videoSource");
+
+const cards = document.querySelectorAll(".work-card");
+
+const closeBtn = document.querySelector(".closeVideo");
+
+
+cards.forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        source.src = card.dataset.video;
+
+        video.load();
+
+        modal.classList.add("active");
+
+        document.body.classList.add("modal-open");
+
+        video.play();
+
+    });
+
+});
+
+
+function closeVideo(){
+
+    modal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
+    video.pause();
+
+    video.currentTime = 0;
+
+}
+
+
+closeBtn.addEventListener("click",closeVideo);
+
+
+/* Close when clicking outside */
+
+modal.addEventListener("click",(e)=>{
+
+    if(e.target===modal){
+
+        closeVideo();
+
+    }
+
+});
+
+
+/* ESC Key */
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Escape"){
+
+        closeVideo();
+
+    }
+
+});
+
+
+/* Auto Close When Video Ends */
+
+video.addEventListener("ended",()=>{
+
+    closeVideo();
+
+});
+
+
+/* ==========================
+   Navbar Background on Scroll
+========================== */
+
+const nav = document.querySelector("nav");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>80){
+
+        nav.style.background="rgba(8,8,8,.75)";
+
+        nav.style.backdropFilter="blur(16px)";
+
+    }
+
+    else{
+
+        nav.style.background="transparent";
+
+        nav.style.backdropFilter="blur(0px)";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
